@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<style type="text/css">	
+	p.me{font-size: 60%}
+	div.me{
+		line-height: 60%;
+		font-size: 60%;
+		border-style: solid;
+		border-color: #ff0000 #00ff00 #0000ff rgb(250,0,255);
+		padding: 3px 2px;
+		background-color: lightyellow }
+	</style>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//pic.zhih.me">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+	<link rel="preload" href="https://pic.zhih.me/blog/header.jpg" as="image">
+
+	<title>搭建博客 | David Stark</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="David Stark">
+	<meta name="description" content="终于搭建好了我的博客平台，让我们来回忆一下定制化搭建博客的过程吧~">
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	<link rel="apple-touch-icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="David Stark">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="搭建博客 | David Stark">
+	<meta property="og:description" content="终于搭建好了我的博客平台，让我们来回忆一下定制化搭建博客的过程吧~">
+	<meta property="og:url" content="https://starky99.com/myBlog/">
+
+	
+	<meta property="article:published_time" content="2019-06-24T09:06:00+08:00"> 
+	<meta property="article:author" content="David Stark">
+	<meta property="article:published_first" content="David Stark, /myBlog/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144747730-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-144747730-1');
+	</script>
+	
+	
+	
+<link rel="canonical" href="https://starky99.com/myBlog/">
+
+
+
+
+
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">🏠</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/me" title="我🌞">我🌞</a>
+            </li>
+            
+            <li>
+                <a href="/tags/love" title="Love💕">Love💕</a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/david990917/My-LeetCode-Solutions" target="_blank" rel="noopener" title="我的LeetCode题解✅">我的LeetCode题解✅</a>
+            </li>
+            
+            <li>
+                <a href="https://starky99.com/myBlog/" title="我的博客特性😃">我的博客特性😃</a>
+            </li>
+            
+            <li>
+                <a href="/storage" title="Storage💎">Storage💎</a>
+            </li>
+            
+            <li>
+                <a href="https://s3.console.aws.amazon.com/s3/buckets/starky99/?region=ap-south-1&tab=overview" target="_blank" rel="noopener" title="AWS S3 ☁">AWS S3 ☁</a>
+            </li>
+            
+            <li>
+                <a href="/my20" title="MY20👦">MY20👦</a>
+            </li>
+            
+            <li>
+                <a href="/my2019" title="MY2019💪">MY2019💪</a>
+            </li>
+            
+			
+            
+			
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+	
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/david990917" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/49026226" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+	
+    
+    <a class="social-link" title="zhihu" href="https://www.zhihu.com/people/david990917" target="_blank" rel="noopener">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewbox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">  <image id="image0" width="32" height="32" x="0" y="0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
+cwAACxMAAAsTAQCanBgAAAAHdElNRQfjBhYSDxAju0XaAAABIklEQVQ4y2NgGF5A3wurMBOMYXWa
+F6sCFhgj+982CIONG0L//cTAwMDAwAiV53rBdp2BgYHhf6TZIojIFV0UEwJ4D7124NrGwCDAwLDi
+NgMDQyaaVQc+8jIce8LAwMAQ+9+HgYGB4dplFEcaqUV8ZmD5g9uRt2T/MjCw/cSt4AsDAwMD2zc8
+3gwVZWAQ/ZjFwHAaezBa/IeBTWiOhJpwQ5OBQeD4ygYGhm/2WK348IGBwZLhzA08ccHA4MBgUIxX
+QeR78e4oPAq8dTeE3Z5nw8DAIMzMICbDgq6S+9Z/Uwb194cZYv//D5vz7///y6jyjEv/r2ZgYHA9
+zaBddvPft56ysiRUm6b+vyfKwMDAoMPAwFC/SwXDKZ5LygThHB6GYQcAq/1Vz+pfeiUAAAAldEVY
+dGRhdGU6Y3JlYXRlADIwMTktMDYtMjNUMDE6MTU6MTYtMDc6MDCq/xEoAAAAJXRFWHRkYXRlOm1v
+ZGlmeQAyMDE5LTA2LTIzVDAxOjE1OjE2LTA3OjAw26KplAAAAABJRU5ErkJggg==">
+</image></svg>
+
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+    
+	</div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2019-06-24T01:35:37.000Z">
+                    2019-06-24
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/tech/">技术</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">搭建博客</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://i.loli.net/2017/11/26/5a19c04890c51.jpg)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="lightgallery" class="markdown-body">
+                    <h1 id="我的博客使用Hexo-Github-Pages-搭建。"><a href="#我的博客使用Hexo-Github-Pages-搭建。" class="headerlink" title="我的博客使用Hexo + Github Pages 搭建。"></a>我的博客使用Hexo + Github Pages 搭建。</h1><p><img alt="1561341983642" class="post-img b-lazy" href="/myBlog/1561341983642.png" data-src="/myBlog/1561341983642.png"></p>
+<h2 id="和基础的-Casper-主题相比较，进行了如下定制："><a href="#和基础的-Casper-主题相比较，进行了如下定制：" class="headerlink" title="和基础的 Casper 主题相比较，进行了如下定制："></a>和基础的 Casper 主题相比较，进行了如下定制：</h2><ol>
+<li><p>修改网页小头像为我个人的脸萌</p>
+</li>
+<li><p>修改网页的标题</p>
+</li>
+<li><p>添加了知乎社交媒体的分享</p>
+</li>
+<li><p>底部栏添加了“点击支持我的知乎Live💗”的链接</p>
+</li>
+<li><p>⭐修改主页的显示方法，使之能够在有description的情况下，显示description。这样能够在主页更加有效的显示信息。</p>
+</li>
+<li><p>创建json脚本</p>
+<p>package.json 中新建脚本：</p>
+<ul>
+<li>npm run s</li>
+<li>npm run d</li>
+</ul>
+</li>
+<li><p>文章可以加密访问</p>
+</li>
+<li><p>文章末尾添加标签</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---本文结束✔感谢阅读---</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现文章字数统计和阅读预估时间（添加了附件，待定制）</p>
+</li>
+<li><p>定制头文件实现添加版权信息</p>
+</li>
+<li><p>可以主动推送到百度站长</p>
+</li>
+<li><p>设定菜单项的显示文本</p>
+</li>
+<li><p>生成 about 页面 &amp;&amp; 定制化跳转菜单</p>
+</li>
+<li><p>404页面</p>
+ 
+
+	<div class="row">
+    <embed src="xx.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+</li>
+<li><p>数据统计：页面浏览次数的统计</p>
+</li>
+<li><p>修改permalink</p>
+</li>
+<li><p>添加pdf</p>
+</li>
+</ol>
+<h2 id="在研究过程中有如下的收获："><a href="#在研究过程中有如下的收获：" class="headerlink" title="在研究过程中有如下的收获："></a>在研究过程中有如下的收获：</h2><ul>
+<li><p>图片的上传：</p>
+<p>博客里面添加图片有两种方式:</p>
+<ul>
+<li><p>相对位置：</p>
+<p>在_post文件夹下面，同名的md文件和文件夹。在文件夹中放置你想要的图片，然后像正常写md一样，拖拽图片添加到文章中即可。</p>
+<p>注意：</p>
+<ul>
+<li><p>图片地址中需要使用斜杠，而非反斜杠</p>
+</li>
+<li><p>要修改地址为相对地址。</p>
+</li>
+<li><p>注意图片名称不要有空格</p>
+<p>✔现在使用的是Typora自带的图片生成文件夹（./${filename}​）</p>
+</li>
+</ul>
+</li>
+<li><p>网络位置：</p>
+<p>上传到我自己的GitHub assets文件夹</p>
+</li>
+</ul>
+</li>
+<li><p>图标的修改:</p>
+<p>在网站上获取图片，然后使用Photoshop将图片转换为黑白格式（Ctrl+shift+Alt+B）。之后使用格式工厂将图片压缩（32*32），之后使用网络转换工具，将图片转换为svg格式。</p>
+</li>
+<li><p>理解了layout布局的结构，使用宏。</p>
+</li>
+<li><p>理解了swig语言，能够写初步的swig语言程序。</p>
+</li>
+<li><p>设计了属于自己的blog模板。</p>
+</li>
+<li><p>能够添加cover-image</p>
+</li>
+<li><p>发布到自己的域名上面</p>
+</li>
+<li><p>刷新（去缓存刷新）Ctrl+F5 / Shift+F5</p>
+</li>
+<li><p>加密访问：</p>
+<ul>
+<li><p><a href="https://link.jianshu.com/?t=https%3A%2F%2Fgithub.com%2FMikeCoder%2Fhexo-blog-encrypt%2Fblob%2Fmaster%2FReadMe.zh.md" target="_blank" rel="noopener">Hexo-Blog-Encrypt</a></p>
+</li>
+<li><p><strong>安装</strong></p>
+<p>在 hexo 根目录的 package.json 中添加 <code>&quot;hexo-blog-encrypt&quot;: &quot;1.1.*&quot;</code> 依赖。</p>
+<p>然后执行<code>npm install</code> 命令。</p>
+<p>该插件会自动安装。</p>
+</li>
+<li><p><strong>快速开始</strong></p>
+<ol>
+<li>首先在 <code>_config.yml</code> 中启用该插件:</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Security</span></span><br><span class="line"><span class="comment">##</span></span><br><span class="line"><span class="attr">encrypt:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>在你的文章的头部添加上对应的字段，如 <code>password</code>, <code>abstract</code>, <code>message</code> </li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">hello</span> <span class="string">world</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2016</span><span class="number">-03</span><span class="number">-30</span> <span class="number">21</span><span class="string">:18:02</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">fdsafsdaf</span></span><br><span class="line"><span class="attr">password:</span> <span class="string">Mike</span></span><br><span class="line"><span class="attr">abstract:</span> <span class="string">Welcome</span> <span class="string">to</span> <span class="string">my</span> <span class="string">blog,</span> <span class="string">enter</span> <span class="string">password</span> <span class="string">to</span> <span class="string">read.</span></span><br><span class="line"><span class="attr">message:</span> <span class="string">Welcome</span> <span class="string">to</span> <span class="string">my</span> <span class="string">blog,</span> <span class="string">enter</span> <span class="string">password</span> <span class="string">to</span> <span class="string">read.</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>404html+css 语言</p>
+</li>
+<li><p>TDK</p>
+</li>
+<li><p>修改<code>hexo-image-asset</code>插件里面的内容，使之适应我们blog的网址设计。</p>
+<p>发现已经有成熟的描述了，就直接放入链接了。<a href="https://blog.csdn.net/xjm850552586/article/details/84101345" target="_blank" rel="noopener">https://blog.csdn.net/xjm850552586/article/details/84101345</a></p>
+</li>
+</ul>
+<p><img alt="david990917" class="post-img b-lazy" href="/myBlog/david990917.png" data-src="/myBlog/david990917.png"></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><h4 id="1-config-yml文件配置："><a href="#1-config-yml文件配置：" class="headerlink" title="1. _config.yml文件配置："></a>1. _config.yml文件配置：</h4><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hexo配置</span></span><br><span class="line"><span class="comment">## 文档: https://hexo.io/docs/configuration.html</span></span><br><span class="line"><span class="comment">## 源码: https://github.com/hexojs/hexo/</span></span><br><span class="line"><span class="comment">## hexo版本：hexo-cli: 1.1.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网站</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo</span> <span class="comment"># 网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="comment"># 网站副标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="comment"># 网站描述(SEO)</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">John</span> <span class="string">Doe</span> <span class="comment"># 您的名字</span></span><br><span class="line"><span class="attr">language:</span> <span class="comment"># 网站使用的语言</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="comment"># 网站时区</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 网址</span></span><br><span class="line"><span class="comment">## 如果你的网站放在子目录中，请将url设置为为'http://yoursite.com/child'，将根目录root设置为'/child/'</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://yoursite.com</span> <span class="comment"># 网址</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span> <span class="comment"># 网站根目录</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:year/:month/:day/:title/</span> <span class="comment"># 文章的永久链接</span></span><br><span class="line"><span class="attr">permalink_defaults:</span> <span class="comment"># 永久链接中各部分的默认值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 目录</span></span><br><span class="line"><span class="attr">source_dir:</span> <span class="string">source</span> <span class="comment"># 资源文件夹，这个文件夹用来存放内容。</span></span><br><span class="line"><span class="attr">public_dir:</span> <span class="string">public</span> <span class="comment"># 公共文件夹，这个文件夹用于存放生成的站点文件。</span></span><br><span class="line"><span class="attr">tag_dir:</span> <span class="string">tags</span> <span class="comment"># 标签文件夹</span></span><br><span class="line"><span class="attr">archive_dir:</span> <span class="string">archives</span> <span class="comment"># 归档文件夹</span></span><br><span class="line"><span class="attr">category_dir:</span> <span class="string">categories</span> <span class="comment"># 分类文件夹</span></span><br><span class="line"><span class="attr">code_dir:</span> <span class="string">downloads/code</span> <span class="comment"># include code文件夹</span></span><br><span class="line"><span class="attr">i18n_dir:</span> <span class="string">:lang</span> <span class="comment"># 国际化（i18n）文件夹</span></span><br><span class="line"><span class="attr">skip_render:</span> <span class="comment"># 跳过指定文件的渲染，您可使用 glob 表达式来匹配路径。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 文章</span></span><br><span class="line"><span class="attr">new_post_name:</span> <span class="string">:title.md</span> <span class="comment"># 新文章的文件名称</span></span><br><span class="line"><span class="attr">default_layout:</span> <span class="string">post</span> <span class="comment"># 预设布局</span></span><br><span class="line"><span class="attr">titlecase:</span> <span class="literal">false</span> <span class="comment"># 将标题转换为title case</span></span><br><span class="line"><span class="attr">external_link:</span> <span class="literal">true</span> <span class="comment"># 在新标签中打开外部链接</span></span><br><span class="line"><span class="attr">filename_case:</span> <span class="number">0</span> <span class="comment"># 把文件名称转换为 (1) 小写或 (2) 大写</span></span><br><span class="line"><span class="attr">render_drafts:</span> <span class="literal">false</span> <span class="comment"># 显示草稿</span></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">false</span> <span class="comment"># 启动asset文件夹</span></span><br><span class="line"><span class="attr">relative_link:</span> <span class="literal">false</span> <span class="comment"># 把链接改为与根目录的相对位址</span></span><br><span class="line"><span class="attr">future:</span> <span class="literal">true</span> <span class="comment"># 显示未来的文章</span></span><br><span class="line"><span class="attr">highlight:</span> <span class="comment"># 代码块的设置</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment"># 启动设置</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span> <span class="comment"># 行号</span></span><br><span class="line">  <span class="attr">auto_detect:</span> <span class="literal">false</span> <span class="comment"># 自动检测</span></span><br><span class="line">  <span class="attr">tab_replace:</span> <span class="comment"># tab替换</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 主页设置</span></span><br><span class="line"><span class="comment"># path: Root path for your blogs index page. (默认 = '')</span></span><br><span class="line"><span class="comment"># per_page: Posts displayed per page. (0 = 关闭分页功能)</span></span><br><span class="line"><span class="comment"># order_by: Posts order. (默认情况下按日期降序排序)</span></span><br><span class="line"><span class="attr">index_generator:</span> <span class="comment"># 索引生成</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">''</span> <span class="comment"># 路径</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">10</span> <span class="comment"># 每页展示文章数</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span> <span class="comment"># 排序依据</span></span><br><span class="line">  </span><br><span class="line"><span class="comment"># 分类 &amp; 标签</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span> <span class="comment"># 默认分类</span></span><br><span class="line"><span class="attr">category_map:</span> <span class="comment"># 分类别名</span></span><br><span class="line"><span class="attr">tag_map:</span> <span class="comment"># 标签别名     </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 日期 / 时间格式</span></span><br><span class="line"><span class="comment">## Hexo使用Moment.js来解析和显示日期</span></span><br><span class="line"><span class="comment">## 您可以按下面的文档描述自定义日期格式</span></span><br><span class="line"><span class="comment">## http://momentjs.com/docs/#/displaying/format/</span></span><br><span class="line"><span class="attr">date_format:</span> <span class="string">YYYY-MM-DD</span> <span class="comment"># 日期格式</span></span><br><span class="line"><span class="attr">time_format:</span> <span class="string">HH:mm:ss</span> <span class="comment"># 时间格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 分页 &amp; 标签</span></span><br><span class="line"><span class="comment">## 将per_page设置为0可禁用分页</span></span><br><span class="line"><span class="attr">per_page:</span> <span class="number">10</span> <span class="comment"># 每页显示的文章量 (0 = 关闭分页功能)</span></span><br><span class="line"><span class="attr">pagination_dir:</span> <span class="string">page</span> <span class="comment"># 分页目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 拓展</span></span><br><span class="line"><span class="comment">## 插件：https://hexo.io/plugins/ #</span></span><br><span class="line"><span class="comment">## 主题：https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span> <span class="comment"># 当前主题名称。值为false时禁用主题</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 部署</span></span><br><span class="line"><span class="comment">## 文档: https://hexo.io/docs/deployment.html</span></span><br><span class="line"><span class="attr">deploy:</span> <span class="comment"># 部署部分的设置</span></span><br><span class="line">  <span class="attr">type:</span> <span class="comment"># 网站类型</span></span><br></pre></td></tr></table></figure>
+
+<p>使用的主题 <a href="https://zhih.me/hexo-casper-usage/" target="_blank" rel="noopener">Casper</a> </p>
+<h4 id="2-网站格式转化"><a href="#2-网站格式转化" class="headerlink" title="2. 网站格式转化"></a>2. 网站格式转化</h4><p>可以转化图片等一系列的格式<a href="https://www.aconvert.com/" target="_blank" rel="noopener">https://www.aconvert.com/</a></p>
+<h4 id="3-Hexo根目录结构"><a href="#3-Hexo根目录结构" class="headerlink" title="3. Hexo根目录结构"></a>3. Hexo根目录结构</h4><p>Hexo根目录结构如下图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── db.json</span><br><span class="line">├── package.json</span><br><span class="line">├── public</span><br><span class="line">├── scaffolds</span><br><span class="line">├── source</span><br><span class="line">|   ├── _drafts</span><br><span class="line">|   └── _posts</span><br><span class="line">└── themes</span><br></pre></td></tr></table></figure>
+
+<h5 id="source"><a href="#source" class="headerlink" title="source"></a><strong>source</strong></h5><p>资源文件夹是存放用户资源的地方。除<code>_posts</code> 文件夹之外，开头命名为 _ (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件（如刚刚生成的about文件夹）会被拷贝到 public 文件夹。</p>
+<h5 id="为github仓库添加readme"><a href="#为github仓库添加readme" class="headerlink" title="为github仓库添加readme"></a>为github仓库添加readme</h5><p>既然 source 文件夹中的内容将全部被推送到 public 文件夹，public 文件夹中的内容又将被最终push到github仓库中，那么如果我们想要为github仓库添加readme.md，只要在 source 文件夹中创建就好了：</p>
+<p><img alt="img" class="post-img b-lazy" href="/myBlog/5791489-afc543b5c1845e8c.webp" data-src="/myBlog/5791489-afc543b5c1845e8c.webp"></p>
+<p>部署到github，就有readme了，但我们发现，README.md已经被解析为README.html，显示的全是html代码，并不是我们想要的文档格式的内容。</p>
+<p>为了解决这个问题，我们回到source文件夹，将<code>README.md</code>重命名为<code>README.MDOWN</code>，再部署到github。</p>
+<p>source文件夹中，.md会被解析为html，并放到 public 文件夹被push到github，但.MDWN不会被解析。</p>
+<h5 id="404-页面"><a href="#404-页面" class="headerlink" title="404 页面"></a>404 页面</h5><p>创建404.html</p>
+<h4 id="4-Hexo卸载插件命令"><a href="#4-Hexo卸载插件命令" class="headerlink" title="4. Hexo卸载插件命令"></a>4. Hexo卸载插件命令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall 插件名 --save</span><br></pre></td></tr></table></figure>
+
+<h4 id="hexo-install-命令"><a href="#hexo-install-命令" class="headerlink" title="hexo install 命令"></a>hexo install 命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br><span class="line"></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">npm install hexo-baidu-url-submit --save</span><br><span class="line"></span><br><span class="line">npm install hexo-generator-sitemap --save  </span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br><span class="line"></span><br><span class="line">npm install hexo-blog-encrypt --save</span><br><span class="line"></span><br><span class="line">npm install hexo-generator-cname --save</span><br><span class="line">npm install hexo-pdf --save</span><br></pre></td></tr></table></figure>
+
+<h4 id="还有一部分内容在兄弟页面连接"><a href="#还有一部分内容在兄弟页面连接" class="headerlink" title="还有一部分内容在兄弟页面连接"></a>还有一部分内容在兄弟页面连接</h4><p>starky99.com/blog-characters</p>
+
+                </article>
+				
+				
+					<div class="me">
+						<my_post_copyright>
+						  <p><span>本文标题: </span><a href="/myBlog/">搭建博客</a></p>
+						  <p><span>文章作者: </span><a href="/" title="访问 David Stark 的个人博客">David Stark</a></p>
+						  <p><span>发布时间: </span>2019年06月24日 - 09:06</p>
+						  <p><span>最后更新: </span>2020年03月02日 - 17:03</p>
+						  <p><span id="busuanzi_container_page_pv">本文累计阅读：<span id="busuanzi_value_page_pv"></span></span></p>					  
+						  <p><span>原始链接: </span><a href="/myBlog/" title="搭建博客">https://starky99.com/myBlog/</a></p></my_post_copyright></div>
+				
+				
+				<div>
+					
+						<div style="text-align:center;color:#787878;font-size:14px;">---本文结束✔感谢阅读---</div>
+					
+				</div>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/blog/" rel="tag"># blog</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="A sweet trip to Suzhou with sweetie Annika" href="/suzhou-trip/">
+            ← A sweet trip to Suzhou with sweetie Annika
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="毛概复习" href="/maogai/">
+            毛概复习 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#我的博客使用Hexo-Github-Pages-搭建。"><span class="toc-text">我的博客使用Hexo + Github Pages 搭建。</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#和基础的-Casper-主题相比较，进行了如下定制："><span class="toc-text">和基础的 Casper 主题相比较，进行了如下定制：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在研究过程中有如下的收获："><span class="toc-text">在研究过程中有如下的收获：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识点："><span class="toc-text">知识点：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-config-yml文件配置："><span class="toc-text">1. _config.yml文件配置：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-网站格式转化"><span class="toc-text">2. 网站格式转化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-Hexo根目录结构"><span class="toc-text">3. Hexo根目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#source"><span class="toc-text">source</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#为github仓库添加readme"><span class="toc-text">为github仓库添加readme</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#404-页面"><span class="toc-text">404 页面</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Hexo卸载插件命令"><span class="toc-text">4. Hexo卸载插件命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo-install-命令"><span class="toc-text">hexo install 命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#还有一部分内容在兄弟页面连接"><span class="toc-text">还有一部分内容在兄弟页面连接</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; David Stark &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/leetcode-python-auto-show/">LeetCode自动展示</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/windows-subsystem-ubuntu/">Windows子系统Ubuntu</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/when-to-buy-iPhone11Pro/">iPhone 11 Pro 冲冲冲</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/words/">文字</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">算法</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/Django/" style="font-size: 15.43px;">Django</a> <a href="/tags/Dlib/" style="font-size: 14px;">Dlib</a> <a href="/tags/LeetCode/" style="font-size: 14px;">LeetCode</a> <a href="/tags/ubuntu/" style="font-size: 15.43px;">Ubuntu</a> <a href="/tags/blog/" style="font-size: 18.29px;">blog</a> <a href="/tags/docker/" style="font-size: 16.86px;">docker</a> <a href="/tags/1point3acra/" style="font-size: 16.86px;">一亩三分地</a> <a href="/tags/history/" style="font-size: 14px;">历史</a> <a href="/tags/love/" style="font-size: 18.29px;">恋爱</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 19.71px;">数据结构</a> <a href="/tags/travel/" style="font-size: 18.29px;">旅行</a> <a href="/tags/summerApply/" style="font-size: 14px;">暑研</a> <a href="/tags/%E6%9D%82/" style="font-size: 14px;">杂</a> <a href="/tags/others/" style="font-size: 14px;">杂记</a> <a href="/tags/%E6%AF%8F%E5%A4%A9%E9%83%BD%E5%9C%A8%E8%BF%9B%E6%AD%A5/" style="font-size: 14px;">每天都在进步</a> <a href="/tags/environment/" style="font-size: 16.86px;">环境</a> <a href="/tags/masterApply/" style="font-size: 14px;">研究生申请</a> <a href="/tags/programmer/" style="font-size: 21.14px;">程序员</a> <a href="/tags/america/" style="font-size: 16.86px;">美国</a> <a href="/tags/work/" style="font-size: 16.86px;">职场</a> <a href="/tags/english/" style="font-size: 14px;">英文</a> <a href="/tags/plan/" style="font-size: 14px;">规划</a> <a href="/tags/book/" style="font-size: 22.57px;">读书笔记</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 24px;">课程</a> <a href="/tags/%E9%A2%98/" style="font-size: 14px;">题</a> <a href="/tags/soup/" style="font-size: 14px;">鸡汤</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="David Stark">David Stark</a>
+			&copy; 2020
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://www.zhihu.com/lives/users/5a60f1248f4a9d4c5994ceb0ad681ca1" title="欢迎支持我的知乎Live💗" target="_blank" rel="noopener">欢迎支持我的知乎Live💗</a>
+			
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>if(window.navigator && navigator.serviceWorker) {navigator.serviceWorker.getRegistrations().then(function(registrations) {for(let registration of registrations) {registration.unregister()}})}</script>
+
+
+<script async src="/js/allinone.min.js" id="scriptLoad"></script>
+
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        var bLazy = new Blazy()
+    })
+</script>
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="David Stark">
+			
+                <img src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark icon">
+			
+            <span>David Stark</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">搭建博客</div>
+    <progress class="progress" value="0">
+        <span class="progress-container">
+            <span class="progress-bar"></span>
+        </span>
+    </progress>
+</div>
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        postProgressBar()
+    })
+</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script async src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script async src="https://unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<script>
+    window.addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: '',
+            appKey: '',
+            placeholder: 'Just go go',
+            pageSize: 10,
+            avatar: 'mm',
+            visitor: true,
+        })
+    });
+</script>
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function(){
+        searchFunc("/")
+    });
+</script>
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

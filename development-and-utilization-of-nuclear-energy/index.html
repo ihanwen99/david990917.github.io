@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<style type="text/css">	
+	p.me{font-size: 60%}
+	div.me{
+		line-height: 60%;
+		font-size: 60%;
+		border-style: solid;
+		border-color: #ff0000 #00ff00 #0000ff rgb(250,0,255);
+		padding: 3px 2px;
+		background-color: lightyellow }
+	</style>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//pic.zhih.me">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+	<link rel="preload" href="https://pic.zhih.me/blog/header.jpg" as="image">
+
+	<title>核能开发和利用 | David Stark</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="David Stark">
+	<meta name="description" content="清洁能源利用-选修课<br>补充阅读书籍">
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	<link rel="apple-touch-icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="David Stark">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="核能开发和利用 | David Stark">
+	<meta property="og:description" content="清洁能源利用-选修课<br>补充阅读书籍">
+	<meta property="og:url" content="https://starky99.com/development-and-utilization-of-nuclear-energy/">
+
+	
+	<meta property="article:published_time" content="2019-10-14T16:10:00+08:00"> 
+	<meta property="article:author" content="David Stark">
+	<meta property="article:published_first" content="David Stark, /development-and-utilization-of-nuclear-energy/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144747730-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-144747730-1');
+	</script>
+	
+	
+	
+<link rel="canonical" href="https://starky99.com/development-and-utilization-of-nuclear-energy/">
+
+
+
+
+
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">🏠</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/me" title="我🌞">我🌞</a>
+            </li>
+            
+            <li>
+                <a href="/tags/love" title="Love💕">Love💕</a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/david990917/My-LeetCode-Solutions" target="_blank" rel="noopener" title="我的LeetCode题解✅">我的LeetCode题解✅</a>
+            </li>
+            
+            <li>
+                <a href="https://starky99.com/myBlog/" title="我的博客特性😃">我的博客特性😃</a>
+            </li>
+            
+            <li>
+                <a href="/storage" title="Storage💎">Storage💎</a>
+            </li>
+            
+            <li>
+                <a href="https://s3.console.aws.amazon.com/s3/buckets/starky99/?region=ap-south-1&tab=overview" target="_blank" rel="noopener" title="AWS S3 ☁">AWS S3 ☁</a>
+            </li>
+            
+            <li>
+                <a href="/my20" title="MY20👦">MY20👦</a>
+            </li>
+            
+            <li>
+                <a href="/my2019" title="MY2019💪">MY2019💪</a>
+            </li>
+            
+			
+            
+			
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+	
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/david990917" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/49026226" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+	
+    
+    <a class="social-link" title="zhihu" href="https://www.zhihu.com/people/david990917" target="_blank" rel="noopener">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewbox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">  <image id="image0" width="32" height="32" x="0" y="0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
+cwAACxMAAAsTAQCanBgAAAAHdElNRQfjBhYSDxAju0XaAAABIklEQVQ4y2NgGF5A3wurMBOMYXWa
+F6sCFhgj+982CIONG0L//cTAwMDAwAiV53rBdp2BgYHhf6TZIojIFV0UEwJ4D7124NrGwCDAwLDi
+NgMDQyaaVQc+8jIce8LAwMAQ+9+HgYGB4dplFEcaqUV8ZmD5g9uRt2T/MjCw/cSt4AsDAwMD2zc8
+3gwVZWAQ/ZjFwHAaezBa/IeBTWiOhJpwQ5OBQeD4ygYGhm/2WK348IGBwZLhzA08ccHA4MBgUIxX
+QeR78e4oPAq8dTeE3Z5nw8DAIMzMICbDgq6S+9Z/Uwb194cZYv//D5vz7///y6jyjEv/r2ZgYHA9
+zaBddvPft56ysiRUm6b+vyfKwMDAoMPAwFC/SwXDKZ5LygThHB6GYQcAq/1Vz+pfeiUAAAAldEVY
+dGRhdGU6Y3JlYXRlADIwMTktMDYtMjNUMDE6MTU6MTYtMDc6MDCq/xEoAAAAJXRFWHRkYXRlOm1v
+ZGlmeQAyMDE5LTA2LTIzVDAxOjE1OjE2LTA3OjAw26KplAAAAABJRU5ErkJggg==">
+</image></svg>
+
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+    
+	</div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2019-10-14T08:07:03.000Z">
+                    2019-10-14
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/words/">文字</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">核能开发和利用</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://images.pexels.com/photos/3044470/pexels-photo-3044470.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="lightgallery" class="markdown-body">
+                    <h1 id="引言-世界第一座核反应堆的诞生"><a href="#引言-世界第一座核反应堆的诞生" class="headerlink" title="引言 世界第一座核反应堆的诞生"></a>引言 世界第一座核反应堆的诞生</h1><p>1942年12月2日，第二次世界大战中一个普通的日子。</p>
+<p>1942年12月2日，人类科技发展史上一个普通的日子。</p>
+<p>美国芝加哥大学斯塔格运动场西看台下的一个网球场，世界上第一座核反应堆。</p>
+<p>芝加哥反应堆第一号。</p>
+<h1 id="第1章-为什么要开发核能"><a href="#第1章-为什么要开发核能" class="headerlink" title="第1章 为什么要开发核能"></a>第1章 为什么要开发核能</h1><p>核能不直接产生二氧化碳，间接产生的二氧化碳也比燃烧化石能源少一个数量级。</p>
+<p>从中国的能源状况来看，发展核能是非常必要的。</p>
+<h1 id="第2章-核能发现的历史回顾"><a href="#第2章-核能发现的历史回顾" class="headerlink" title="第2章 核能发现的历史回顾"></a>第2章 核能发现的历史回顾</h1><p>曲折发展：美国三哩岛核电站 和 前苏联切尔诺贝利核电站。</p>
+<p>核电站两个影响因素：</p>
+<ol>
+<li>核电站的安全性：但是现在已经很安全了</li>
+<li>核电站的投资：一次性大量投资，之后的运行费就不是很高了</li>
+</ol>
+<h3 id="最早原子概念的提出"><a href="#最早原子概念的提出" class="headerlink" title="最早原子概念的提出"></a>最早原子概念的提出</h3><p>Atoms 希腊文中就是不可分割的意思。——古希腊人留基伯</p>
+<h3 id="原子论的复兴"><a href="#原子论的复兴" class="headerlink" title="原子论的复兴"></a>原子论的复兴</h3><p>道尔顿是第一个试图确定原子的质量的科学家。</p>
+<h3 id="钋和镭的发现"><a href="#钋和镭的发现" class="headerlink" title="钋和镭的发现"></a>钋和镭的发现</h3><p>居里夫人，为了纪念当时被俄国侵占的祖国波兰，命名为钋(polonium)，放射性比铀强400倍。</p>
+<p>沥青铀矿中提炼出来了镭（数十吨沥青铀矿中提炼出0.1克的镭），放射性比铀强25万倍。</p>
+<h3 id="质能守恒方程"><a href="#质能守恒方程" class="headerlink" title="质能守恒方程"></a>质能守恒方程</h3><h1 id="第3章-核燃料与核燃料循环"><a href="#第3章-核燃料与核燃料循环" class="headerlink" title="第3章 核燃料与核燃料循环"></a>第3章 核燃料与核燃料循环</h1><h3 id="链式反应"><a href="#链式反应" class="headerlink" title="链式反应"></a>链式反应</h3><p>P42 核子链式反应方程</p>
+<p>链式反应条件</p>
+<ol>
+<li>铀要达到一定质量</li>
+<li>中子的能量一定</li>
+</ol>
+<p><strong>抑制</strong></p>
+<p>原子弹就是很纯的铀+超过临界质量，一瞬间一起超多的反应，爆发出剧烈的能量。</p>
+<p>通过硼或者镉来进行抑制。</p>
+<h3 id="放射性"><a href="#放射性" class="headerlink" title="放射性"></a>放射性</h3><ul>
+<li>氦原子核</li>
+<li>高能电子</li>
+<li>高能光子</li>
+</ul>
+<h3 id="核燃料"><a href="#核燃料" class="headerlink" title="核燃料"></a>核燃料</h3><p>铀-235，是自然界中存在的裂变材料。</p>
+<p>铀-233和钚-239并不存在，分别是由自然界中的钍-232和铀-238吸收中子后衰变生成的。</p>
+<h3 id="核燃料循环"><a href="#核燃料循环" class="headerlink" title="核燃料循环"></a>核燃料循环</h3><p>铀燃料的反应堆，钍-239</p>
+<h1 id="第4章-核能的军事应用"><a href="#第4章-核能的军事应用" class="headerlink" title="第4章 核能的军事应用"></a>第4章 核能的军事应用</h1><h3 id="概况"><a href="#概况" class="headerlink" title="概况"></a>概况</h3><p><strong>核武器代数</strong></p>
+<p>1代原子弹2代氢弹3代中子弹4代研制中</p>
+<p><strong>TNT当量（爆炸的破坏力相当于多少量的TNT)</strong></p>
+<ul>
+<li>原子弹 几十万吨一以下</li>
+<li>氢弹 几十万吨以上</li>
+</ul>
+<p><strong>引起下一代核裂变的中子数与引起本代核裂变的中子数之比叫做增值系数k</strong></p>
+<h3 id="枪式原子弹"><a href="#枪式原子弹" class="headerlink" title="枪式原子弹"></a>枪式原子弹</h3><p>一小块棒状的核材料和两块半球状的和材料合拢，三块的体积合起来超过了临界体积。</p>
+<p>制造技术简单，但是有缺点（利用率低，压缩需要很长时间，反应速度慢）</p>
+<p>小男孩——64kg铀，TNT当量1.5万吨，利用率仅为1.2%</p>
+<h3 id="内爆式原子弹"><a href="#内爆式原子弹" class="headerlink" title="内爆式原子弹"></a>内爆式原子弹</h3><p>核材料的临界质量与其密度有关。密度越高，临界质量越小，定量的说：球形核材料的临界质量与和材料的密度的平方根成正比。密度增加一倍，临界质量减少为原来的1/4.</p>
+<p>内爆技术：利用强大的向心力将次临界状态的核材料压紧，变成高密度的超临界核材料。</p>
+<p>多点起爆，同时起爆。</p>
+<p>胖子——1945年8月9日，日本长崎，当量2.2万吨。</p>
+<h3 id="核爆炸的破坏力及防护"><a href="#核爆炸的破坏力及防护" class="headerlink" title="核爆炸的破坏力及防护"></a>核爆炸的破坏力及防护</h3><p>五种杀伤破坏作用：冲击波、光辐射、瞬时核辐射、剩余核辐射 和 核电磁脉冲。</p>
+<p>主要杀伤破坏作用是冲击波和光辐射。</p>
+<h5 id="光辐射"><a href="#光辐射" class="headerlink" title="光辐射"></a>光辐射</h5><p>35%</p>
+<p>原子弹在空中爆炸的时候，周围的空气温度可以达到几十万摄氏度，在百分之几秒到十分之几秒的很短的时间内形成一个直径约100m的大火球，亮度比一千个太阳还亮，能传播到很远的地方。</p>
+<p>防护：披遮白色反光物，或者躲入碉堡，暴露的人首先要闭眼。</p>
+<h5 id="冲击波"><a href="#冲击波" class="headerlink" title="冲击波"></a>冲击波</h5><p>50%</p>
+<p>核爆炸中心温度高达几百万温度到几千万温度，压强可以达到几十亿到上百亿个大气压。高温高压的蒸汽快速向外膨胀，强烈压缩空气层形成冲击波。</p>
+<p>防护：钢筋混凝土构成的掩蔽部。</p>
+<h5 id="瞬时核辐射"><a href="#瞬时核辐射" class="headerlink" title="瞬时核辐射"></a>瞬时核辐射</h5><p>5%</p>
+<p>爆炸一分钟内释放的核辐射，主要是中子和γ射线。</p>
+<p>对建筑物不起破坏作用，但是对人、动物有强大的杀伤作用。</p>
+<p>防护：重物质可以屏蔽γ射线，轻物质或者硼镉屏蔽中子。三层楼房的地下室就可以安全的防护中子。</p>
+<h5 id="剩余核辐射"><a href="#剩余核辐射" class="headerlink" title="剩余核辐射"></a>剩余核辐射</h5><p>降落下来的裂变产物及核材料产生的核辐射，以及地表物质吸收核爆炸时产生的中子而形成的放射性物质产生的核辐射。</p>
+<p>主要是β射线和γ射线。</p>
+<p>防护：木板就可以挡住β射线，需要铅板挡住γ射线。</p>
+<h5 id="核电磁脉冲"><a href="#核电磁脉冲" class="headerlink" title="核电磁脉冲"></a>核电磁脉冲</h5><p>能量很小，但是高空爆炸时，核电磁脉冲会对电子系统造成破坏和干扰。</p>
+<p>1945~1996年，前苏联和美国共进行了1747次大气层和地下核试验，爆炸当量总和为47840万吨 TNT，是美国投在广岛和长崎两颗原子弹爆炸威力的13000 多倍，但是没有对地球引起太多的变化。</p>
+<h3 id="原子弹的爆炸方式"><a href="#原子弹的爆炸方式" class="headerlink" title="原子弹的爆炸方式"></a>原子弹的爆炸方式</h3><ol>
+<li>大气层外爆炸（电磁脉冲）</li>
+<li>高空爆炸（杀伤地面d暴露人员和破坏不坚固的物体）</li>
+<li>低空爆炸（杀伤野战工事内的人员，破坏地面目标）但是对部队行动影响不大。</li>
+<li>地面爆炸（火球接触地面的爆炸）对小面积目标造成严重的破坏。</li>
+<li>地下爆炸（污染的形式造成障碍）</li>
+</ol>
+<p>原子弹爆炸时，依次出现闪光、火球和蘑菇云。</p>
+<h3 id="核武器的小型化"><a href="#核武器的小型化" class="headerlink" title="核武器的小型化"></a>核武器的小型化</h3><p>超高密度的钍临界质量只有几百克甚至几十克。</p>
+<p>两个技术：</p>
+<ol>
+<li>内爆法提高核材料的密度</li>
+<li>使用更高效的中子反射层</li>
+</ol>
+<h3 id="氢弹"><a href="#氢弹" class="headerlink" title="氢弹"></a>氢弹</h3><p>P162 反应方程</p>
+<p>聚变反应不存在临界质量，但是需要很高的温度。</p>
+<p>只是把他们放在一起，不会发生核反应（和裂变对比)。需要很快的速度让他们克服强大的静电斥力进入核力的吸引范围，发生聚变反应。</p>
+<p>为了引发氢弹爆炸约需要六百万度，在这样的温度下，原子核的电子电离成为自由电子，原子核成为带正电的离子，这种高度电离的物质叫做等离子体。</p>
+<p>美国氢弹之父——爱德华·特勒：</p>
+<p>氢弹爆炸四步：</p>
+<ol>
+<li>引发氢弹爆炸的原子弹</li>
+<li>裂变</li>
+<li>聚变</li>
+<li>裂变（聚变产生的高能中子让壳体铀-238发生裂变，释放出更多的能量）</li>
+</ol>
+<p>特勒-乌拉姆模型，1952年11月1日，世界第一枚氢弹（”迈克“），在太平洋马绍尔群岛的埃尼威托岛试验成功。氢弹高6m，直径1.8m，重65吨，爆炸威力1040万吨TNT当量。他使埃卢杰拉卜岛整个沉没，地面的泉水直冲云霄，鱼类被滚烫的海水煮熟，遥远邻岛上的棕榈树化为了灰烬。</p>
+<p>莫兰德构型——《氢弹的秘密》</p>
+<p>氢弹的威力是没有限制的，因为没有一个临界的质量。按照”分级辐射内爆原理“，可以将巨变材料一级一级地串联起来进行引爆。</p>
+<p>前苏联1961年10月30日在新地岛进行了超级氢弹爆炸试验，设计威力达亿吨级，是世界上爆炸过的威力最大的。氢弹（166页，这个还没记完，下次上课再继续记录）</p>
+<hr>
+<p>【我回来了，今天争取把这本书整理完】</p>
+<h3 id="中子弹"><a href="#中子弹" class="headerlink" title="中子弹"></a>中子弹</h3><p>增强辐射弹，是第三代核武器。它是美国和北约在1958年为了阻止以前苏联为首的华约可能发生的集群坦克的进攻，增强核武器对坦克乘员的杀伤、减少对建筑物的附带破坏而提出的概念，并于1959年研制的。</p>
+<p>中子弹以高能中子的瞬时辐射作为主要杀伤，可以对人员造成重大伤亡，但是对建筑物基本没有毁伤作用。由于剩余辐射很少，又不产生放射性沾染，因此被称为“干净”氢弹。</p>
+<h3 id="其他第三代核武器"><a href="#其他第三代核武器" class="headerlink" title="其他第三代核武器"></a>其他第三代核武器</h3><h5 id="减少剩余放射性弹"><a href="#减少剩余放射性弹" class="headerlink" title="减少剩余放射性弹"></a>减少剩余放射性弹</h5><p>可以更加减少剩余辐射，便于本方军队在核打击之后安全进入该区域进行作战。</p>
+<h5 id="增强X射线弹"><a href="#增强X射线弹" class="headerlink" title="增强X射线弹"></a>增强X射线弹</h5><p>氢弹爆炸时，约有70%的威力通过X射线爆发出来。增强弹就是可以更加增加X射线，产生高温高压和电子脉冲，对敌方的导弹产生巨大的破坏作用。</p>
+<h5 id="核电磁脉冲弹"><a href="#核电磁脉冲弹" class="headerlink" title="核电磁脉冲弹"></a>核电磁脉冲弹</h5><h3 id="核武计划"><a href="#核武计划" class="headerlink" title="核武计划"></a>核武计划</h3><p>不只是研制新型武器，小当量武器，而是还包括了保养，更新等。</p>
+<h3 id="第四代核武器"><a href="#第四代核武器" class="headerlink" title="第四代核武器"></a>第四代核武器</h3><h5 id="金属氢武器"><a href="#金属氢武器" class="headerlink" title="金属氢武器"></a>金属氢武器</h5><p>氢气在一定的超高压力下可以转变为固态结晶甚至金属，其爆炸能量为高能炸药的25~35倍，可以点燃聚变武器。</p>
+<h5 id="反物质武器"><a href="#反物质武器" class="headerlink" title="反物质武器"></a>反物质武器</h5><p>反物质武器是能量转换效率最高的武器。几毫克就可以引爆氢弹，几百毫克就可以进行星际航天飞行</p>
+<h3 id="原子弹用于实战"><a href="#原子弹用于实战" class="headerlink" title="原子弹用于实战"></a>原子弹用于实战</h3><p>二战的时候攻击日本的两枚核武器，是仅有的两枚应用于实战的核武器。</p>
+<p>还有一枚“大男孩” 应用于第一次核试验。</p>
+<h1 id="第6章-核应用技术"><a href="#第6章-核应用技术" class="headerlink" title="第6章 核应用技术"></a>第6章 核应用技术</h1><p>辐射治疗、辐射育种、无损检测、食品辐射加工</p>
+<h1 id="第7章辐射防护与核安全"><a href="#第7章辐射防护与核安全" class="headerlink" title="第7章辐射防护与核安全"></a>第7章辐射防护与核安全</h1><h3 id="美国三哩岛核电站事故"><a href="#美国三哩岛核电站事故" class="headerlink" title="美国三哩岛核电站事故"></a>美国三哩岛核电站事故</h3><p>核泄漏没有造成太大的伤害，但是世界上第一次发生核事故，处理不当造成很多混乱。</p>
+<h3 id="前苏联切尔诺贝利核电站"><a href="#前苏联切尔诺贝利核电站" class="headerlink" title="前苏联切尔诺贝利核电站"></a>前苏联切尔诺贝利核电站</h3><h3 id="福岛第一核电站事故"><a href="#福岛第一核电站事故" class="headerlink" title="福岛第一核电站事故"></a>福岛第一核电站事故</h3><p>这次事故是超强自然灾害导致的超设计基准事故。</p>
+<ol>
+<li>1号机组按照0.18g，3、6号机组按照0.45g、0.46g设计，但是9级地震相当于0.52g，超出设计基准。由于地震，输电塔倒塌，但是应急柴油发电机和自动安全防护装置还是在正常工作，未对核电站造成致命破坏。</li>
+<li>地震后引发的14m海啸大大超出了核电站5.7m洪水高程设防，导致柴油发电机停止运行。之后改成可以维持8个小时的蓄电池对仪控供电。</li>
+<li>全厂断电后，汽轮机驱动堆芯隔离冷却系统投入。然而后期一系列连锁反应，导致汇聚在厂房顶部的大量氢气爆炸，造成核泄露。</li>
+</ol>
+<p>核电站使用了海水冷却，海水腐蚀性能强，核电站的关键设备无法使用了，核电站的报废的命运注定了。</p>
+<h1 id="第8章-核能的未来发展"><a href="#第8章-核能的未来发展" class="headerlink" title="第8章 核能的未来发展"></a>第8章 核能的未来发展</h1><h3 id="三个关键问题："><a href="#三个关键问题：" class="headerlink" title="三个关键问题："></a>三个关键问题：</h3><ol>
+<li><p>研究与发展更先进的核反应堆。</p>
+</li>
+<li><p>逐步解决高放废物的最终处置问题。</p>
+<p>现在的处理办法是玻璃固化，然后深埋在与生物圈隔离的地下。</p>
+</li>
+<li><p>解决防止核扩散的问题</p>
+</li>
+</ol>
+<hr>
+<p>Over</p>
+
+                </article>
+				
+				
+					<div class="me">
+						<my_post_copyright>
+						  <p><span>本文标题: </span><a href="/development-and-utilization-of-nuclear-energy/">核能开发和利用</a></p>
+						  <p><span>文章作者: </span><a href="/" title="访问 David Stark 的个人博客">David Stark</a></p>
+						  <p><span>发布时间: </span>2019年10月14日 - 16:10</p>
+						  <p><span>最后更新: </span>2020年03月02日 - 17:03</p>
+						  <p><span id="busuanzi_container_page_pv">本文累计阅读：<span id="busuanzi_value_page_pv"></span></span></p>					  
+						  <p><span>原始链接: </span><a href="/development-and-utilization-of-nuclear-energy/" title="核能开发和利用">https://starky99.com/development-and-utilization-of-nuclear-energy/</a></p></my_post_copyright></div>
+				
+				
+				<div>
+					
+						<div style="text-align:center;color:#787878;font-size:14px;">---本文结束✔感谢阅读---</div>
+					
+				</div>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/book/" rel="tag"># 读书笔记</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="人间失格" href="/no-longer-human/">
+            ← 人间失格
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="Astar算法走迷宫" href="/Astar-maze/">
+            Astar算法走迷宫 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言-世界第一座核反应堆的诞生"><span class="toc-text">引言 世界第一座核反应堆的诞生</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第1章-为什么要开发核能"><span class="toc-text">第1章 为什么要开发核能</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第2章-核能发现的历史回顾"><span class="toc-text">第2章 核能发现的历史回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#最早原子概念的提出"><span class="toc-text">最早原子概念的提出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原子论的复兴"><span class="toc-text">原子论的复兴</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#钋和镭的发现"><span class="toc-text">钋和镭的发现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#质能守恒方程"><span class="toc-text">质能守恒方程</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#第3章-核燃料与核燃料循环"><span class="toc-text">第3章 核燃料与核燃料循环</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#链式反应"><span class="toc-text">链式反应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#放射性"><span class="toc-text">放射性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核燃料"><span class="toc-text">核燃料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核燃料循环"><span class="toc-text">核燃料循环</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第4章-核能的军事应用"><span class="toc-text">第4章 核能的军事应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#概况"><span class="toc-text">概况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枪式原子弹"><span class="toc-text">枪式原子弹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内爆式原子弹"><span class="toc-text">内爆式原子弹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核爆炸的破坏力及防护"><span class="toc-text">核爆炸的破坏力及防护</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#光辐射"><span class="toc-text">光辐射</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#冲击波"><span class="toc-text">冲击波</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#瞬时核辐射"><span class="toc-text">瞬时核辐射</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#剩余核辐射"><span class="toc-text">剩余核辐射</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#核电磁脉冲"><span class="toc-text">核电磁脉冲</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原子弹的爆炸方式"><span class="toc-text">原子弹的爆炸方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核武器的小型化"><span class="toc-text">核武器的小型化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#氢弹"><span class="toc-text">氢弹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#中子弹"><span class="toc-text">中子弹</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他第三代核武器"><span class="toc-text">其他第三代核武器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#减少剩余放射性弹"><span class="toc-text">减少剩余放射性弹</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#增强X射线弹"><span class="toc-text">增强X射线弹</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#核电磁脉冲弹"><span class="toc-text">核电磁脉冲弹</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核武计划"><span class="toc-text">核武计划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四代核武器"><span class="toc-text">第四代核武器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#金属氢武器"><span class="toc-text">金属氢武器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#反物质武器"><span class="toc-text">反物质武器</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原子弹用于实战"><span class="toc-text">原子弹用于实战</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第6章-核应用技术"><span class="toc-text">第6章 核应用技术</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第7章辐射防护与核安全"><span class="toc-text">第7章辐射防护与核安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#美国三哩岛核电站事故"><span class="toc-text">美国三哩岛核电站事故</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前苏联切尔诺贝利核电站"><span class="toc-text">前苏联切尔诺贝利核电站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#福岛第一核电站事故"><span class="toc-text">福岛第一核电站事故</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第8章-核能的未来发展"><span class="toc-text">第8章 核能的未来发展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三个关键问题："><span class="toc-text">三个关键问题：</span></a></li></ol></li>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; David Stark &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/leetcode-python-auto-show/">LeetCode自动展示</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/windows-subsystem-ubuntu/">Windows子系统Ubuntu</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/when-to-buy-iPhone11Pro/">iPhone 11 Pro 冲冲冲</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/words/">文字</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">算法</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/Django/" style="font-size: 15.43px;">Django</a> <a href="/tags/Dlib/" style="font-size: 14px;">Dlib</a> <a href="/tags/LeetCode/" style="font-size: 14px;">LeetCode</a> <a href="/tags/ubuntu/" style="font-size: 15.43px;">Ubuntu</a> <a href="/tags/blog/" style="font-size: 18.29px;">blog</a> <a href="/tags/docker/" style="font-size: 16.86px;">docker</a> <a href="/tags/1point3acra/" style="font-size: 16.86px;">一亩三分地</a> <a href="/tags/history/" style="font-size: 14px;">历史</a> <a href="/tags/love/" style="font-size: 18.29px;">恋爱</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 19.71px;">数据结构</a> <a href="/tags/travel/" style="font-size: 18.29px;">旅行</a> <a href="/tags/summerApply/" style="font-size: 14px;">暑研</a> <a href="/tags/%E6%9D%82/" style="font-size: 14px;">杂</a> <a href="/tags/others/" style="font-size: 14px;">杂记</a> <a href="/tags/%E6%AF%8F%E5%A4%A9%E9%83%BD%E5%9C%A8%E8%BF%9B%E6%AD%A5/" style="font-size: 14px;">每天都在进步</a> <a href="/tags/environment/" style="font-size: 16.86px;">环境</a> <a href="/tags/masterApply/" style="font-size: 14px;">研究生申请</a> <a href="/tags/programmer/" style="font-size: 21.14px;">程序员</a> <a href="/tags/america/" style="font-size: 16.86px;">美国</a> <a href="/tags/work/" style="font-size: 16.86px;">职场</a> <a href="/tags/english/" style="font-size: 14px;">英文</a> <a href="/tags/plan/" style="font-size: 14px;">规划</a> <a href="/tags/book/" style="font-size: 22.57px;">读书笔记</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 24px;">课程</a> <a href="/tags/%E9%A2%98/" style="font-size: 14px;">题</a> <a href="/tags/soup/" style="font-size: 14px;">鸡汤</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="David Stark">David Stark</a>
+			&copy; 2020
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://www.zhihu.com/lives/users/5a60f1248f4a9d4c5994ceb0ad681ca1" title="欢迎支持我的知乎Live💗" target="_blank" rel="noopener">欢迎支持我的知乎Live💗</a>
+			
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>if(window.navigator && navigator.serviceWorker) {navigator.serviceWorker.getRegistrations().then(function(registrations) {for(let registration of registrations) {registration.unregister()}})}</script>
+
+
+<script async src="/js/allinone.min.js" id="scriptLoad"></script>
+
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        var bLazy = new Blazy()
+    })
+</script>
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="David Stark">
+			
+                <img src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark icon">
+			
+            <span>David Stark</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">核能开发和利用</div>
+    <progress class="progress" value="0">
+        <span class="progress-container">
+            <span class="progress-bar"></span>
+        </span>
+    </progress>
+</div>
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        postProgressBar()
+    })
+</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script async src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script async src="https://unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<script>
+    window.addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: '',
+            appKey: '',
+            placeholder: 'Just go go',
+            pageSize: 10,
+            avatar: 'mm',
+            visitor: true,
+        })
+    });
+</script>
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function(){
+        searchFunc("/")
+    });
+</script>
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

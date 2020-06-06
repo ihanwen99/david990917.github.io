@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<style type="text/css">	
+	p.me{font-size: 60%}
+	div.me{
+		line-height: 60%;
+		font-size: 60%;
+		border-style: solid;
+		border-color: #ff0000 #00ff00 #0000ff rgb(250,0,255);
+		padding: 3px 2px;
+		background-color: lightyellow }
+	</style>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//pic.zhih.me">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+	<link rel="preload" href="https://pic.zhih.me/blog/header.jpg" as="image">
+
+	<title>清洁能源技术-原理与应用 | David Stark</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="David Stark">
+	<meta name="description" content="2019年秋季学期选修课">
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	<link rel="apple-touch-icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="David Stark">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="清洁能源技术-原理与应用 | David Stark">
+	<meta property="og:description" content="2019年秋季学期选修课">
+	<meta property="og:url" content="https://starky99.com/2019fall-po903/">
+
+	
+	<meta property="article:published_time" content="2019-09-09T16:09:00+08:00"> 
+	<meta property="article:author" content="David Stark">
+	<meta property="article:published_first" content="David Stark, /2019fall-po903/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144747730-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-144747730-1');
+	</script>
+	
+	
+	
+<link rel="canonical" href="https://starky99.com/2019fall-po903/">
+
+
+
+
+
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">🏠</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/me" title="我🌞">我🌞</a>
+            </li>
+            
+            <li>
+                <a href="/tags/love" title="Love💕">Love💕</a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/david990917/My-LeetCode-Solutions" target="_blank" rel="noopener" title="我的LeetCode题解✅">我的LeetCode题解✅</a>
+            </li>
+            
+            <li>
+                <a href="https://starky99.com/myBlog/" title="我的博客特性😃">我的博客特性😃</a>
+            </li>
+            
+            <li>
+                <a href="/storage" title="Storage💎">Storage💎</a>
+            </li>
+            
+            <li>
+                <a href="https://s3.console.aws.amazon.com/s3/buckets/starky99/?region=ap-south-1&tab=overview" target="_blank" rel="noopener" title="AWS S3 ☁">AWS S3 ☁</a>
+            </li>
+            
+            <li>
+                <a href="/my20" title="MY20👦">MY20👦</a>
+            </li>
+            
+            <li>
+                <a href="/my2019" title="MY2019💪">MY2019💪</a>
+            </li>
+            
+			
+            
+			
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+	
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/david990917" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/49026226" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+	
+    
+    <a class="social-link" title="zhihu" href="https://www.zhihu.com/people/david990917" target="_blank" rel="noopener">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewbox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">  <image id="image0" width="32" height="32" x="0" y="0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
+cwAACxMAAAsTAQCanBgAAAAHdElNRQfjBhYSDxAju0XaAAABIklEQVQ4y2NgGF5A3wurMBOMYXWa
+F6sCFhgj+982CIONG0L//cTAwMDAwAiV53rBdp2BgYHhf6TZIojIFV0UEwJ4D7124NrGwCDAwLDi
+NgMDQyaaVQc+8jIce8LAwMAQ+9+HgYGB4dplFEcaqUV8ZmD5g9uRt2T/MjCw/cSt4AsDAwMD2zc8
+3gwVZWAQ/ZjFwHAaezBa/IeBTWiOhJpwQ5OBQeD4ygYGhm/2WK348IGBwZLhzA08ccHA4MBgUIxX
+QeR78e4oPAq8dTeE3Z5nw8DAIMzMICbDgq6S+9Z/Uwb194cZYv//D5vz7///y6jyjEv/r2ZgYHA9
+zaBddvPft56ysiRUm6b+vyfKwMDAoMPAwFC/SwXDKZ5LygThHB6GYQcAq/1Vz+pfeiUAAAAldEVY
+dGRhdGU6Y3JlYXRlADIwMTktMDYtMjNUMDE6MTU6MTYtMDc6MDCq/xEoAAAAJXRFWHRkYXRlOm1v
+ZGlmeQAyMDE5LTA2LTIzVDAxOjE1OjE2LTA3OjAw26KplAAAAABJRU5ErkJggg==">
+</image></svg>
+
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+    
+	</div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2019-09-09T08:26:57.000Z">
+                    2019-09-9
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                
+            </div>
+            <h1 class="post-full-title">清洁能源技术-原理与应用</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://images.pexels.com/photos/2861857/pexels-photo-2861857.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="lightgallery" class="markdown-body">
+                    <h1 id="第一次课190909"><a href="#第一次课190909" class="headerlink" title="第一次课190909"></a>第一次课190909</h1><p><img alt="1568018754094" class="post-img b-lazy" href="/2019fall-po903/1568018754094.png" data-src="/2019fall-po903/1568018754094.png"></p>
+<ol>
+<li>清洁能源汽车 vs 新能源汽车</li>
+<li>N2 O2分子 哪一个大？</li>
+</ol>
+<p>​    ——N2（非金属元素）</p>
+<ol start="3">
+<li><p>从90年代到现在，中国经历了非常大的经济增长，汽车保有量直线上升。发展的负面效应，带来的环境污染。</p>
+</li>
+<li><p>工业界对于环保的需求也很大（钱不是问题）</p>
+</li>
+<li><p>氢气是很重要的清洁能源（最清洁的）</p>
+<ul>
+<li>燃烧生成水</li>
+<li>电化学的方法</li>
+<li>日本准备打造 氢能源社会</li>
+</ul>
+</li>
+<li><p>目前的新能源发电有很大的波动性。太阳能、风能都是没法电网直接接受。工厂就配备了一个储能设备（蓄电池）。</p>
+</li>
+<li><p>太阳能飞机（阳光号）：证明可以利用太阳能可以实现环球飞行。</p>
+</li>
+<li><p>新科技依赖于材料技术的发展。</p>
+</li>
+<li><p>FCV: Fuel Cell Vehicles</p>
+<p><img alt="1568020506721" class="post-img b-lazy" href="/2019fall-po903/1568020506721.png" data-src="/2019fall-po903/1568020506721.png"></p>
+</li>
+<li><p>汽车普及的三个方向：</p>
+<ol>
+<li>便宜：消费者的角度</li>
+<li>油耗要低（重量/发动机的效率）</li>
+<li>环境保护(汽油品质)</li>
+</ol>
+</li>
+<li><p>汽油——脂肪烃和芳香烃</p>
+<p>芳香烃(苯：是强致癌物)</p>
+</li>
+<li><p>内燃机 + 电池 + 发电机（很重的车子）</p>
+<ul>
+<li>PHV ：Plugin 插入式的。电池可以来自于外部插电。燃油箱变小，需求转移到外部电网。（太贵了）</li>
+<li>EV ：纯粹的电动汽车</li>
+<li>FCV ： 不用充电的 氢气（氢叫水素，氧叫酸素）</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h1 id="第二次课-190916"><a href="#第二次课-190916" class="headerlink" title="第二次课 190916"></a>第二次课 190916</h1><h3 id="考核方式"><a href="#考核方式" class="headerlink" title="考核方式"></a>考核方式</h3><ul>
+<li>平时作业和上课参与  20</li>
+<li>期中-小组大作业及报告讨论ppt发表 40<ul>
+<li>图书馆-电子数据库</li>
+</ul>
+</li>
+<li>期末考试（小论文）40</li>
+</ul>
+<p>能源的定义</p>
+<p>能量的定义</p>
+<h1 id="第三次课190923"><a href="#第三次课190923" class="headerlink" title="第三次课190923"></a>第三次课190923</h1><p>小组作业</p>
+<p><img alt="1569233313718" class="post-img b-lazy" href="/2019fall-po903/1569233313718.png" data-src="/2019fall-po903/1569233313718.png"></p>
+<p>我们选择的是13核能利用的现状与发展趋势。</p>
+<p><img alt="1569233340100" class="post-img b-lazy" href="/2019fall-po903/1569233340100.png" data-src="/2019fall-po903/1569233340100.png"></p>
+<p>分组情况。</p>
+<p>期末考试</p>
+<p><img alt="1569233726856" class="post-img b-lazy" href="/2019fall-po903/1569233726856.png" data-src="/2019fall-po903/1569233726856.png"></p>
+<p><img alt="1569233776279" class="post-img b-lazy" href="/2019fall-po903/1569233776279.png" data-src="/2019fall-po903/1569233776279.png"></p>
+<p>标题、作者、学号、摘要、分标题</p>
+<p><img alt="1569233804539" class="post-img b-lazy" href="/2019fall-po903/1569233804539.png" data-src="/2019fall-po903/1569233804539.png"></p>
+<p>注意总结和参考文献</p>
+<p><img alt="1569233816140" class="post-img b-lazy" href="/2019fall-po903/1569233816140.png" data-src="/2019fall-po903/1569233816140.png"></p>
+<p>个人论文的题目参考：我准备写清洁能源技术与可持续发展（核能）</p>
+<p><img alt="1569233842392" class="post-img b-lazy" href="/2019fall-po903/1569233842392.png" data-src="/2019fall-po903/1569233842392.png"></p>
+<p>这个有点难了。。。</p>
+<hr>
+<h3 id="酸雨"><a href="#酸雨" class="headerlink" title="酸雨"></a>酸雨</h3><p>酸雨： PH&lt;5.6</p>
+<p>较重酸雨： PH&lt;5.0</p>
+<p>重酸雨： PH&lt;4.5</p>
+<h4 id="酸雨的形成"><a href="#酸雨的形成" class="headerlink" title="酸雨的形成"></a>酸雨的形成</h4><h5 id="海洋"><a href="#海洋" class="headerlink" title="海洋"></a>海洋</h5><p>海洋会夹带一些硫酸到空中</p>
+<h5 id="生物"><a href="#生物" class="headerlink" title="生物"></a>生物</h5><p>动物尸体中的S化物</p>
+<h5 id="火山爆发、森林火灾、闪电"><a href="#火山爆发、森林火灾、闪电" class="headerlink" title="火山爆发、森林火灾、闪电"></a>火山爆发、森林火灾、闪电</h5><h5 id="人工排放源"><a href="#人工排放源" class="headerlink" title="人工排放源"></a>人工排放源</h5><ul>
+<li>煤炭、石油等化石燃料的燃烧</li>
+<li>工业过程（金属冶炼）</li>
+<li>化工生产（硫酸生产、硝酸生产）</li>
+<li>交通运输（汽车尾气）</li>
+</ul>
+<h3 id="核能"><a href="#核能" class="headerlink" title="核能"></a>核能</h3><p>核能污染</p>
+<p>福岛核电站，9级地震，海啸。</p>
+<h3 id="光化学污染"><a href="#光化学污染" class="headerlink" title="光化学污染"></a>光化学污染</h3><p>形成条件：1.充足的阳光2.干燥的气候3.汽车尾气的排放核污染</p>
+<p>[复印机里面放电，空气电离形成臭氧]</p>
+<h3 id="清洁能源-PK-传统能源"><a href="#清洁能源-PK-传统能源" class="headerlink" title="清洁能源 PK 传统能源"></a>清洁能源 PK 传统能源</h3><p>清洁能源的成本比较高</p>
+<h2 id="思考题："><a href="#思考题：" class="headerlink" title="思考题："></a>思考题：</h2><p>[课程网站，这个就不算分啦]</p>
+<ol>
+<li>能源可以分为那儿积累</li>
+<li>化石能源与环境污染的关系</li>
+<li>常见清洁能源及利用技术有哪些?</li>
+<li>如何处理发展清洁能源与利用传统化石能源之间的关系</li>
+</ol>
+<hr>
+<h2 id="高分子材料"><a href="#高分子材料" class="headerlink" title="高分子材料"></a>高分子材料</h2><h3 id="高分子"><a href="#高分子" class="headerlink" title="高分子"></a>高分子</h3><p>高分子是具有重复单元的大分子，通常分子量在10000以上的。</p>
+<p>1000-10000 —— 预聚物</p>
+<p>1000以下 —— 小分子物质</p>
+<p>有机高分子是以C-C共价键为基本结构的高分子</p>
+<h3 id="聚乙烯"><a href="#聚乙烯" class="headerlink" title="聚乙烯"></a>聚乙烯</h3><p><img alt="1569233934034" class="post-img b-lazy" href="/2019fall-po903/1569233934034.png" data-src="/2019fall-po903/1569233934034.png"></p>
+<h3 id="均聚物"><a href="#均聚物" class="headerlink" title="均聚物"></a>均聚物</h3><p>只有一种重复单元的聚合物。</p>
+<p><img alt="1569233955029" class="post-img b-lazy" href="/2019fall-po903/1569233955029.png" data-src="/2019fall-po903/1569233955029.png"></p>
+<p>一次性水杯——PE</p>
+<p>塑料水管、乐扣盒子——PP（熔点更高，可以使用微波炉加热的）</p>
+<p>矿泉水瓶——PET（无毒，光学透明性好，软化点比较低60-70度）</p>
+<p><img alt="1569233987200" class="post-img b-lazy" href="/2019fall-po903/1569233987200.png" data-src="/2019fall-po903/1569233987200.png"></p>
+<p>聚醚砜（PSE）</p>
+<hr>
+<h1 id="第一次课堂作业（190925）"><a href="#第一次课堂作业（190925）" class="headerlink" title="第一次课堂作业（190925）"></a>第一次课堂作业（190925）</h1><h3 id="1-能源可以分为哪几类？"><a href="#1-能源可以分为哪几类？" class="headerlink" title="1.能源可以分为哪几类？"></a>1.能源可以分为哪几类？</h3><p>（一）依据能源的来源分类：</p>
+<ol>
+<li>来自地球外部天体的能源（主要是太阳能，由太阳能转化来的风能、水能、生物能和矿物能源）</li>
+<li>地球本身蕴藏的能量（原子核能，地热能）</li>
+<li>地球和其他天体相互作用而产生的能量（潮汐能等）</li>
+</ol>
+<p>（二）按能源的产生方式分类：</p>
+<ol>
+<li><p>一次能源 即天然能源：</p>
+<p>煤炭、石油、天然气、太阳能、核能、风能、地<br>热能、海洋能、生物能</p>
+</li>
+<li><p>二次能源 即人工能源：</p>
+<p>电力、煤气、汽油、柴油、焦炭、洁净煤、激光、沼气、氢能等</p>
+</li>
+</ol>
+<p>（三）按能源的（燃烧）性质分类：</p>
+<ol>
+<li><p>燃料型能源：</p>
+<p>煤炭、石油、天然气、木材等</p>
+</li>
+<li><p>非燃料型能源</p>
+<p>水能、风能、地热能、海洋能</p>
+</li>
+</ol>
+<p>（四）按能源消耗后是否造成环境污染分类：</p>
+<ol>
+<li><p>污染型能源：<br>煤炭、石油等</p>
+</li>
+<li><p>清洁型能源<br>氢能、太阳能、风能、水能、生物质能、地热能、海洋能、 （核能） 等</p>
+</li>
+</ol>
+<p>（五）按照是否可以再生分：</p>
+<ol>
+<li>非再生能源<br>煤炭、石油、天然气等</li>
+<li>可再生能源：<br>风能、太阳能、生物质能、水能、海洋能等</li>
+</ol>
+<hr>
+<h3 id="2-请说明化石能源与环境污染的关系。"><a href="#2-请说明化石能源与环境污染的关系。" class="headerlink" title="2.请说明化石能源与环境污染的关系。"></a>2.请说明化石能源与环境污染的关系。</h3><ul>
+<li>化石能源燃烧产生二氧化碳等气体及浮尘，影响环境。</li>
+<li>化石能源中有较多的硫，硫化物逐渐形成酸雨，污染环境。</li>
+<li>氮氧化物和碳氢化合物在大气中收到阳光中强烈的紫外线照射后产生的二次污染物质——光化学烟雾，污染环境</li>
+</ul>
+<hr>
+<h3 id="3-常见清洁能源及其利用技术有哪些？"><a href="#3-常见清洁能源及其利用技术有哪些？" class="headerlink" title="3.常见清洁能源及其利用技术有哪些？"></a>3.常见清洁能源及其利用技术有哪些？</h3><ul>
+<li><p>常见清洁能源：</p>
+<ul>
+<li>可再生能源：太阳能、风能、生物能、水能，地热<br>能等</li>
+<li>不可再生能源：氢能、核能、低污染的化石能源（如天然气等）和利用清洁能源技术处理过的化石能源，如洁净<br>煤、洁净油等</li>
+</ul>
+</li>
+<li><p>利用技术：主要就是提取清洁能源，并且高效使用清洁能源，并把清洁能源产生的能量高效的转化成为我们所需要的能量形式过程中使用的技术。</p>
+<p>比如说核电站可控核裂变技术，可燃冰开采技术等。</p>
+</li>
+</ul>
+<hr>
+<h3 id="4-如何处理发展清洁能源与利用传统化石能源之间的关系？"><a href="#4-如何处理发展清洁能源与利用传统化石能源之间的关系？" class="headerlink" title="4.如何处理发展清洁能源与利用传统化石能源之间的关系？"></a>4.如何处理发展清洁能源与利用传统化石能源之间的关系？</h3><p>大量使用清洁能源必然是未来的一个趋势，但是由于清洁能源相对于传统的化石能源有着成本更高，技术没有那么成熟的缺点，所以普及速度没有预料的那么快。</p>
+<p>未来应该有很长一段时间是清洁能源和传统化石能源并行，清洁能源在政策和技术的支持下逐步占据传统化石能源的比率，最后随着可控核聚变和无线充电技术的成熟，逐步替代化石能源。</p>
+<h1 id="第四次课190930"><a href="#第四次课190930" class="headerlink" title="第四次课190930"></a>第四次课190930</h1><p>C-C单键是可以旋转的</p>
+<h3 id="分子间作用力"><a href="#分子间作用力" class="headerlink" title="分子间作用力"></a>分子间作用力</h3><ul>
+<li><p>色散力</p>
+<p>分子的瞬时偶极间的作用力，分子量越高，色散力越强。</p>
+</li>
+<li><p>诱导力</p>
+<p>由于诱导偶极而产生的作用力，发生在极性分子之间及极性分子与非极性分子之间。</p>
+</li>
+<li><p>取向力</p>
+<p>由于诱导偶极而产生的作用力，发生在极性分子之间及极性分子与非极性分子之间。</p>
+</li>
+</ul>
+<h3 id="玻璃化转变温度"><a href="#玻璃化转变温度" class="headerlink" title="玻璃化转变温度"></a>玻璃化转变温度</h3><p>PET 熔点267℃，玻璃化转变温度67℃</p>
+<p>玻璃态：在低温下，聚合物主链及链段都处于“冻结”状态，不能自由运动，只有那些较小的运动单元如侧基、支链和小链节能运动，聚合物此时的状态称为玻璃态。</p>
+<p><img alt="1569831859651" class="post-img b-lazy" href="/2019fall-po903/1569831859651.png" data-src="/2019fall-po903/1569831859651.png"></p>
+<p>高弹态：随着温度的升高，分子热运动能量逐渐增加，当达到一定温度时，分子热运动的能量足以克服单键内旋转的位垒，链段运动被激发，聚合物开始进入高弹态。</p>
+<p>玻璃化转变温度（ glass transition temperature ）：聚合物由玻璃态开始转变为高弹态时的温度（常用 Tg 表示）</p>
+<p>粘流态：随着温度的进一步升高，整个高分子链段的运动被激发，聚合物开始进入粘流态（熔融）。</p>
+<p><img alt="1569831993369" class="post-img b-lazy" href="/2019fall-po903/1569831993369.png" data-src="/2019fall-po903/1569831993369.png"></p>
+<h3 id="塑料"><a href="#塑料" class="headerlink" title="塑料"></a>塑料</h3><p><img alt="1569832380606" class="post-img b-lazy" href="/2019fall-po903/1569832380606.png" data-src="/2019fall-po903/1569832380606.png"></p>
+<h3 id="橡胶"><a href="#橡胶" class="headerlink" title="橡胶"></a>橡胶</h3><p>硫化</p>
+<p>塑料和橡胶可以相互转化（液氮的温度）</p>
+<hr>
+<h1 id="第二次课堂作业"><a href="#第二次课堂作业" class="headerlink" title="第二次课堂作业"></a>第二次课堂作业</h1><hr>
+<h3 id="1-名词解释：高分子材料、均聚物、共聚物、塑料、橡胶。"><a href="#1-名词解释：高分子材料、均聚物、共聚物、塑料、橡胶。" class="headerlink" title="1. 名词解释：高分子材料、均聚物、共聚物、塑料、橡胶。"></a>1. 名词解释：高分子材料、均聚物、共聚物、塑料、橡胶。</h3><h5 id="高分子材料-1"><a href="#高分子材料-1" class="headerlink" title="高分子材料"></a>高分子材料</h5><p>高分子（Macromolecule），亦称聚合物（Polymer），是具有重复单元的大分子，通常指分子量在10000以上的大分子。</p>
+<p>高分子材料是以高分子化合物为基体，再配有其他添加剂（助剂）所构成的材料。</p>
+<h5 id="均聚物-1"><a href="#均聚物-1" class="headerlink" title="均聚物"></a>均聚物</h5><p>只有一种重复单元的聚合物称为均聚物。</p>
+<p>例子：聚乙烯、聚丙烯、聚苯乙烯</p>
+<h5 id="共聚物"><a href="#共聚物" class="headerlink" title="共聚物"></a>共聚物</h5><p>由两种或两种以上重复单元组成的聚合物称为共聚物。</p>
+<p>例子：聚（丙烯腈-co-苯乙烯）</p>
+<h5 id="塑料-1"><a href="#塑料-1" class="headerlink" title="塑料"></a>塑料</h5><p>在一定条件（温度 、 压力等）下可塑成一定形状并且在 室温 下保持其形状不变的材料 。</p>
+<h5 id="橡胶-1"><a href="#橡胶-1" class="headerlink" title="橡胶"></a>橡胶</h5><p>有机高弹性化合物在很宽的温度，范围内具有优异的弹性 所以又称高弹体 。</p>
+<p>有以下性质:</p>
+<ul>
+<li><p>橡胶的玻璃化转变温度远低于室温 。</p>
+</li>
+<li><p>橡胶在使用条件下不结晶或结晶度很小，主链高度柔顺 。</p>
+</li>
+<li><p>橡胶经交联 硫化 后具有三维交联网状结构，在使用条件下无分子间相对滑移 。</p>
+</li>
+</ul>
+<h3 id="2-举例说明高分子材料的种类、化学结构和应用（不少于-3种）"><a href="#2-举例说明高分子材料的种类、化学结构和应用（不少于-3种）" class="headerlink" title="2. 举例说明高分子材料的种类、化学结构和应用（不少于 3种）"></a>2. 举例说明高分子材料的种类、化学结构和应用（不少于 3种）</h3><ol>
+<li><p>聚乙烯（塑料）：<img alt="1569832252059" class="post-img b-lazy" href="/2019fall-po903/1569832252059.png" data-src="/2019fall-po903/1569832252059.png"> </p>
+<p>高压聚乙烯：一半以上用于薄膜制品，其次是管材、注射成型制品、电线包裹层等</p>
+<p>中低、压聚乙烯：以注射成型制品及中空制品为主。</p>
+<p>超高压聚乙烯：由于超高分子聚乙烯优异的综合性能，可作为工程塑料使用。</p>
+</li>
+<li><p>聚苯乙烯（塑料）:</p>
+<p><img alt="1569832555095" class="post-img b-lazy" href="/2019fall-po903/1569832555095.png" data-src="/2019fall-po903/1569832555095.png"></p>
+<p>日常生活中常见的应用有各种一次性塑料餐具，透明CD盒等等。</p>
+</li>
+<li><p>聚氯乙烯 PVC（塑料）:</p>
+<p><img alt="1569832615075" class="post-img b-lazy" href="/2019fall-po903/1569832615075.png" data-src="/2019fall-po903/1569832615075.png"></p>
+<p><strong>聚氯乙烯管材</strong>，这个是最直白最广为人知的一个用处了吧。</p>
+<hr>
+</li>
+</ol>
+<h1 id="第五次课191014"><a href="#第五次课191014" class="headerlink" title="第五次课191014"></a>第五次课191014</h1><p>今天学习的是锂电池，记录一下生活中锂电池的使用注意事项（老师推荐的电池使用）：</p>
+<p>影响锂电池寿命的因素是电池的循环次数，不是完全充满完全放电的次数。所以没有必要每次都非要把电冲的满满的在使用，用到红了再充电。</p>
+<p>平时充电的时候不要睡前插上电，然后早上醒来拔下来看电冲没冲满，这样不好。我询问了老师关于电池内部管理芯片的事儿，老师说这种就是一个概率的事儿，争取不让它发生在自己身上。</p>
+<p>我觉得苹果最近推出的人工智能管理电池充电的就很好，我也在上课的时候萌生了同样的想法。涓流充电还是很好滴。</p>
+<p>电池也不要过热，手机太热的时候就停止使用吧~</p>
+<hr>
+<p>这门课最后得到了A的成绩。</p>
+<p>很开心能学到很实用的知识。</p>
+<p>还有我的读书笔记——<a href="https://starky99.com/development-and-utilization-of-nuclear-energy/">《核能开发和利用》</a></p>
+<p>Over</p>
+
+                </article>
+				
+				
+					<div class="me">
+						<my_post_copyright>
+						  <p><span>本文标题: </span><a href="/2019fall-po903/">清洁能源技术-原理与应用</a></p>
+						  <p><span>文章作者: </span><a href="/" title="访问 David Stark 的个人博客">David Stark</a></p>
+						  <p><span>发布时间: </span>2019年09月09日 - 16:09</p>
+						  <p><span>最后更新: </span>2020年03月02日 - 18:03</p>
+						  <p><span id="busuanzi_container_page_pv">本文累计阅读：<span id="busuanzi_value_page_pv"></span></span></p>					  
+						  <p><span>原始链接: </span><a href="/2019fall-po903/" title="清洁能源技术-原理与应用">https://starky99.com/2019fall-po903/</a></p></my_post_copyright></div>
+				
+				
+				<div>
+					
+						<div style="text-align:center;color:#787878;font-size:14px;">---本文结束✔感谢阅读---</div>
+					
+				</div>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag"># 课程</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="美国的文化和历史" href="/2019fall-hi903/">
+            ← 美国的文化和历史
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="5段流水线CPU设计" href="/cpu-pipeline/">
+            5段流水线CPU设计 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第一次课190909"><span class="toc-text">第一次课190909</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二次课-190916"><span class="toc-text">第二次课 190916</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#考核方式"><span class="toc-text">考核方式</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#第三次课190923"><span class="toc-text">第三次课190923</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#酸雨"><span class="toc-text">酸雨</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#酸雨的形成"><span class="toc-text">酸雨的形成</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#海洋"><span class="toc-text">海洋</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#生物"><span class="toc-text">生物</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#火山爆发、森林火灾、闪电"><span class="toc-text">火山爆发、森林火灾、闪电</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#人工排放源"><span class="toc-text">人工排放源</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#核能"><span class="toc-text">核能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#光化学污染"><span class="toc-text">光化学污染</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#清洁能源-PK-传统能源"><span class="toc-text">清洁能源 PK 传统能源</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#思考题："><span class="toc-text">思考题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高分子材料"><span class="toc-text">高分子材料</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#高分子"><span class="toc-text">高分子</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#聚乙烯"><span class="toc-text">聚乙烯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#均聚物"><span class="toc-text">均聚物</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第一次课堂作业（190925）"><span class="toc-text">第一次课堂作业（190925）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-能源可以分为哪几类？"><span class="toc-text">1.能源可以分为哪几类？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-请说明化石能源与环境污染的关系。"><span class="toc-text">2.请说明化石能源与环境污染的关系。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-常见清洁能源及其利用技术有哪些？"><span class="toc-text">3.常见清洁能源及其利用技术有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-如何处理发展清洁能源与利用传统化石能源之间的关系？"><span class="toc-text">4.如何处理发展清洁能源与利用传统化石能源之间的关系？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第四次课190930"><span class="toc-text">第四次课190930</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#分子间作用力"><span class="toc-text">分子间作用力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#玻璃化转变温度"><span class="toc-text">玻璃化转变温度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#塑料"><span class="toc-text">塑料</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#橡胶"><span class="toc-text">橡胶</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第二次课堂作业"><span class="toc-text">第二次课堂作业</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-名词解释：高分子材料、均聚物、共聚物、塑料、橡胶。"><span class="toc-text">1. 名词解释：高分子材料、均聚物、共聚物、塑料、橡胶。</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#高分子材料-1"><span class="toc-text">高分子材料</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#均聚物-1"><span class="toc-text">均聚物</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#共聚物"><span class="toc-text">共聚物</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#塑料-1"><span class="toc-text">塑料</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#橡胶-1"><span class="toc-text">橡胶</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-举例说明高分子材料的种类、化学结构和应用（不少于-3种）"><span class="toc-text">2. 举例说明高分子材料的种类、化学结构和应用（不少于 3种）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#第五次课191014"><span class="toc-text">第五次课191014</span></a></li>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; David Stark &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/leetcode-python-auto-show/">LeetCode自动展示</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/windows-subsystem-ubuntu/">Windows子系统Ubuntu</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/when-to-buy-iPhone11Pro/">iPhone 11 Pro 冲冲冲</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/words/">文字</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">算法</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/Django/" style="font-size: 15.43px;">Django</a> <a href="/tags/Dlib/" style="font-size: 14px;">Dlib</a> <a href="/tags/LeetCode/" style="font-size: 14px;">LeetCode</a> <a href="/tags/ubuntu/" style="font-size: 15.43px;">Ubuntu</a> <a href="/tags/blog/" style="font-size: 18.29px;">blog</a> <a href="/tags/docker/" style="font-size: 16.86px;">docker</a> <a href="/tags/1point3acra/" style="font-size: 16.86px;">一亩三分地</a> <a href="/tags/history/" style="font-size: 14px;">历史</a> <a href="/tags/love/" style="font-size: 18.29px;">恋爱</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 19.71px;">数据结构</a> <a href="/tags/travel/" style="font-size: 18.29px;">旅行</a> <a href="/tags/summerApply/" style="font-size: 14px;">暑研</a> <a href="/tags/%E6%9D%82/" style="font-size: 14px;">杂</a> <a href="/tags/others/" style="font-size: 14px;">杂记</a> <a href="/tags/%E6%AF%8F%E5%A4%A9%E9%83%BD%E5%9C%A8%E8%BF%9B%E6%AD%A5/" style="font-size: 14px;">每天都在进步</a> <a href="/tags/environment/" style="font-size: 16.86px;">环境</a> <a href="/tags/masterApply/" style="font-size: 14px;">研究生申请</a> <a href="/tags/programmer/" style="font-size: 21.14px;">程序员</a> <a href="/tags/america/" style="font-size: 16.86px;">美国</a> <a href="/tags/work/" style="font-size: 16.86px;">职场</a> <a href="/tags/english/" style="font-size: 14px;">英文</a> <a href="/tags/plan/" style="font-size: 14px;">规划</a> <a href="/tags/book/" style="font-size: 22.57px;">读书笔记</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 24px;">课程</a> <a href="/tags/%E9%A2%98/" style="font-size: 14px;">题</a> <a href="/tags/soup/" style="font-size: 14px;">鸡汤</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="David Stark">David Stark</a>
+			&copy; 2020
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://www.zhihu.com/lives/users/5a60f1248f4a9d4c5994ceb0ad681ca1" title="欢迎支持我的知乎Live💗" target="_blank" rel="noopener">欢迎支持我的知乎Live💗</a>
+			
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>if(window.navigator && navigator.serviceWorker) {navigator.serviceWorker.getRegistrations().then(function(registrations) {for(let registration of registrations) {registration.unregister()}})}</script>
+
+
+<script async src="/js/allinone.min.js" id="scriptLoad"></script>
+
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        var bLazy = new Blazy()
+    })
+</script>
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="David Stark">
+			
+                <img src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark icon">
+			
+            <span>David Stark</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">清洁能源技术-原理与应用</div>
+    <progress class="progress" value="0">
+        <span class="progress-container">
+            <span class="progress-bar"></span>
+        </span>
+    </progress>
+</div>
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        postProgressBar()
+    })
+</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script async src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script async src="https://unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<script>
+    window.addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: '',
+            appKey: '',
+            placeholder: 'Just go go',
+            pageSize: 10,
+            avatar: 'mm',
+            visitor: true,
+        })
+    });
+</script>
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function(){
+        searchFunc("/")
+    });
+</script>
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

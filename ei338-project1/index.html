@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<style type="text/css">	
+	p.me{font-size: 60%}
+	div.me{
+		line-height: 60%;
+		font-size: 60%;
+		border-style: solid;
+		border-color: #ff0000 #00ff00 #0000ff rgb(250,0,255);
+		padding: 3px 2px;
+		background-color: lightyellow }
+	</style>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//pic.zhih.me">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+	<link rel="preload" href="https://pic.zhih.me/blog/header.jpg" as="image">
+
+	<title>Operating System-Project 1 | David Stark</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="David Stark">
+	<meta name="description" content="2019年秋季学期必修课-计算机体系结构第一次项目作业">
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	<link rel="apple-touch-icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="David Stark">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Operating System-Project 1 | David Stark">
+	<meta property="og:description" content="2019年秋季学期必修课-计算机体系结构第一次项目作业">
+	<meta property="og:url" content="https://starky99.com/ei338-project1/">
+
+	
+	<meta property="article:published_time" content="2019-10-18T14:10:00+08:00"> 
+	<meta property="article:author" content="David Stark">
+	<meta property="article:published_first" content="David Stark, /ei338-project1/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144747730-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-144747730-1');
+	</script>
+	
+	
+	
+<link rel="canonical" href="https://starky99.com/ei338-project1/">
+
+
+
+
+
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">🏠</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/me" title="我🌞">我🌞</a>
+            </li>
+            
+            <li>
+                <a href="/tags/love" title="Love💕">Love💕</a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/david990917/My-LeetCode-Solutions" target="_blank" rel="noopener" title="我的LeetCode题解✅">我的LeetCode题解✅</a>
+            </li>
+            
+            <li>
+                <a href="https://starky99.com/myBlog/" title="我的博客特性😃">我的博客特性😃</a>
+            </li>
+            
+            <li>
+                <a href="/storage" title="Storage💎">Storage💎</a>
+            </li>
+            
+            <li>
+                <a href="https://s3.console.aws.amazon.com/s3/buckets/starky99/?region=ap-south-1&tab=overview" target="_blank" rel="noopener" title="AWS S3 ☁">AWS S3 ☁</a>
+            </li>
+            
+            <li>
+                <a href="/my20" title="MY20👦">MY20👦</a>
+            </li>
+            
+            <li>
+                <a href="/my2019" title="MY2019💪">MY2019💪</a>
+            </li>
+            
+			
+            
+			
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+	
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/david990917" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/49026226" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+	
+    
+    <a class="social-link" title="zhihu" href="https://www.zhihu.com/people/david990917" target="_blank" rel="noopener">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewbox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">  <image id="image0" width="32" height="32" x="0" y="0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
+cwAACxMAAAsTAQCanBgAAAAHdElNRQfjBhYSDxAju0XaAAABIklEQVQ4y2NgGF5A3wurMBOMYXWa
+F6sCFhgj+982CIONG0L//cTAwMDAwAiV53rBdp2BgYHhf6TZIojIFV0UEwJ4D7124NrGwCDAwLDi
+NgMDQyaaVQc+8jIce8LAwMAQ+9+HgYGB4dplFEcaqUV8ZmD5g9uRt2T/MjCw/cSt4AsDAwMD2zc8
+3gwVZWAQ/ZjFwHAaezBa/IeBTWiOhJpwQ5OBQeD4ygYGhm/2WK348IGBwZLhzA08ccHA4MBgUIxX
+QeR78e4oPAq8dTeE3Z5nw8DAIMzMICbDgq6S+9Z/Uwb194cZYv//D5vz7///y6jyjEv/r2ZgYHA9
+zaBddvPft56ysiRUm6b+vyfKwMDAoMPAwFC/SwXDKZ5LygThHB6GYQcAq/1Vz+pfeiUAAAAldEVY
+dGRhdGU6Y3JlYXRlADIwMTktMDYtMjNUMDE6MTU6MTYtMDc6MDCq/xEoAAAAJXRFWHRkYXRlOm1v
+ZGlmeQAyMDE5LTA2LTIzVDAxOjE1OjE2LTA3OjAw26KplAAAAABJRU5ErkJggg==">
+</image></svg>
+
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+    
+	</div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2019-10-18T06:22:51.000Z">
+                    2019-10-18
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/algorithm/">算法</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">Operating System-Project 1</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="lightgallery" class="markdown-body">
+                    <h1 id="EI338-Project1"><a href="#EI338-Project1" class="headerlink" title="EI338 Project1"></a>EI338 Project1</h1><h2 id="Project-Environment"><a href="#Project-Environment" class="headerlink" title="Project Environment"></a>Project Environment</h2><p>I use Ubuntu 16.04 in VMware.</p>
+<h2 id="1-Jiffies"><a href="#1-Jiffies" class="headerlink" title="1. Jiffies"></a>1. Jiffies</h2><h3 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h3><p>Design a kernel module that creates a <code>/proc</code> file named <code>/proc/jiffies</code> that reports the current value of jiffies when the <code>/proc/jiffies</code> file is read, such as with the command</p>
+<blockquote>
+<p>cat /proc/jiffies</p>
+</blockquote>
+<p>Be sure to remove <code>/proc/jiffies</code> when the module is removed.</p>
+<h3 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h3><p>At the beginning of code, we should include <code>&lt;linux/jiffies.h&gt;</code>, because we will use jiffies from this head file. </p>
+<h5 id="proc-File-System"><a href="#proc-File-System" class="headerlink" title="/proc File System"></a><code>/proc</code> File System</h5><p>The <code>/proc</code> file system is a “pseudo” file system that exists only in kernel memory and is used primarily for querying various kernel and per-process statistics.</p>
+<h5 id="proc-init"><a href="#proc-init" class="headerlink" title="proc_init()"></a>proc_init()</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This function is called when the module is loaded. */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">proc_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">/* creates the /proc/jiffies entry */</span></span><br><span class="line">	proc_create(PROC_NAME, <span class="number">0666</span>, <span class="literal">NULL</span>, &amp;proc_ops);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This fuction create the new <code>/proc/jiffies</code> entry using the <code>proc_create()</code> , and passed <code>proc_ops</code>, which contains a reference to a struct file-operations. This struct initializes the <code>.owner</code> and <code>.read</code> members. The value of <code>.read</code> is the name of the function <code>proc_read()</code> that is to be called whenever <code>/proc/jiffies</code> is read.</p>
+<h5 id="proc-exit-void"><a href="#proc-exit-void" class="headerlink" title="proc_exit(void)"></a>proc_exit(void)</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This function is called when the module is removed. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">proc_exit</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">/* removes the /proc/jiffies entry */</span></span><br><span class="line">	remove_proc_entry(PROC_NAME, <span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>The <code>/proc/jiffies</code> file is removed in the module exit point <code>proc_exit()</code>using the function <code>remove_proc_entry()</code>.</p>
+<h5 id="proc-read"><a href="#proc-read" class="headerlink" title="proc_read()"></a>proc_read()</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This function is called each time /proc/jiffies is read */</span></span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">proc_read</span><span class="params">(struct file *file, <span class="keyword">char</span> __user *usr_buf, <span class="keyword">size_t</span> count, <span class="keyword">loff_t</span> *pos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> rv = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> <span class="built_in">buffer</span>[BUFFER_SIZE];</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> completed = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (completed) &#123;</span><br><span class="line">		completed = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	completed = <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	rv = <span class="built_in">sprintf</span>(<span class="built_in">buffer</span>, <span class="string">"%lu\n"</span>, jiffies);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* copies kernel space buffer to user space usr buf */</span></span><br><span class="line">	copy_to_user(usr_buf, <span class="built_in">buffer</span>, rv);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> rv;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In this fuction,  we write the unsigned long int <code>jiffies</code> into the variable buffer where buffer exists in kernel memory. Since <code>/proc/jiffies</code> can be accessed from user space, we must copy the contents of buffer to user space using the kernel function <code>copy_to_user()</code>. This function copies the contents of kernel memory buffer to the variable <code>usr_buf</code>, which exists in user space. </p>
+<p>Each time the <code>proc/jiffies</code> file is read, the <code>proc_read()</code> function is called repeatedly until it returns 0, so there must be logic to ensure that this function returns 0 once it has collected the data that is to go into the corresponding <code>/proc/jiffies</code> file.</p>
+<h5 id="Makefile"><a href="#Makefile" class="headerlink" title="Makefile"></a>Makefile</h5><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">obj-m += jiffies.o</span><br><span class="line"><span class="section">all:</span></span><br><span class="line">	make -C /lib/modules/<span class="variable">$(<span class="built_in">shell</span> uname -r)</span>/build M=<span class="variable">$(PWD)</span> modules</span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	make -C /lib/modules/<span class="variable">$(<span class="built_in">shell</span> uname -r)</span>/build M=<span class="variable">$(PWD)</span> clean</span><br></pre></td></tr></table></figure>
+
+<p>Actually, this part of code is easy, and directly from the demo code.</p>
+<h3 id="Result-Picture"><a href="#Result-Picture" class="headerlink" title="Result Picture"></a>Result Picture</h3><p><img alt="7ef1dd6a2ed90ceb87f469673c7d554" class="post-img b-lazy" href="/ei338-project1/7ef1dd6a2ed90ceb87f469673c7d554.png" data-src="/ei338-project1/7ef1dd6a2ed90ceb87f469673c7d554.png"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">starky99@ubuntu:~/workspace/hw1/2$ make</span><br><span class="line">make -C /lib/modules/4.15.0-45-generic/build M=/home/starky99/workspace/hw1/2 modules</span><br><span class="line">make[1]: Entering directory '/usr/src/linux-headers-4.15.0-45-generic'</span><br><span class="line">Makefile:975: "Cannot use CONFIG_STACK_VALIDATION=y, please install libelf-dev, libelf-devel or elfutils-libelf-devel"</span><br><span class="line">  CC [M]  /home/starky99/workspace/hw1/2/jiffies.o</span><br><span class="line">  Building modules, stage 2.</span><br><span class="line">  MODPOST 1 modules</span><br><span class="line">  CC      /home/starky99/workspace/hw1/2/jiffies.mod.o</span><br><span class="line">  LD [M]  /home/starky99/workspace/hw1/2/jiffies.ko</span><br><span class="line">make[1]: Leaving directory '/usr/src/linux-headers-4.15.0-45-generic'</span><br><span class="line"></span><br><span class="line">starky99@ubuntu:~/workspace/hw1/2$ sudo insmod jiffies.ko</span><br><span class="line">starky99@ubuntu:~/workspace/hw1/2$ dmesg</span><br><span class="line"></span><br><span class="line">starky99@ubuntu:~/workspace/hw1/2$ cat /proc/jiffies </span><br><span class="line">4299778197</span><br><span class="line"></span><br><span class="line">starky99@ubuntu:~/workspace/hw1/2$ cat /proc/jiffies </span><br><span class="line">4299779247</span><br><span class="line"></span><br><span class="line">starky99@ubuntu:~/workspace/hw1/2$ cat /proc/jiffies </span><br><span class="line">4299779836</span><br><span class="line"></span><br><span class="line">starky99@ubuntu:~/workspace/hw1/2$ sudo rmmod jiffies </span><br><span class="line">starky99@ubuntu:~/workspace/hw1/2$ dmesg</span><br></pre></td></tr></table></figure>
+
+<p><img alt="9966c465ba09eeb9cd8d0647dccd624" class="post-img b-lazy" href="/ei338-project1/9966c465ba09eeb9cd8d0647dccd624.png" data-src="/ei338-project1/9966c465ba09eeb9cd8d0647dccd624.png"></p>
+<hr>
+<h2 id="2-second"><a href="#2-second" class="headerlink" title="2. second"></a>2. second</h2><h3 id="Question-1"><a href="#Question-1" class="headerlink" title="Question"></a>Question</h3><p>Design a kernel module that creates a proc file named <code>/proc/seconds</code> that reports the number of elapsed seconds since the kernel module was loaded. This will involve using the value of <code>jiffies</code> as well as the HZ  rate. When a user enters the command</p>
+<blockquote>
+<p>cat /proc/seconds</p>
+</blockquote>
+<p>your kernel module will report the number of seconds that have elapsed since the kernel module was first loaded. Be sure to remove <code>/proc/seconds</code> when the module is removed.</p>
+<h3 id="Answer-1"><a href="#Answer-1" class="headerlink" title="Answer"></a>Answer</h3><p>Base on the first question and introduction from the book. This question is also easy.</p>
+<p>We should use a new model to introduce the new variable <code>HZ</code> using the following code</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;asm/param.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>And change the name of the files to <code>second</code>.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PROC_NAME <span class="meta-string">"second"</span></span></span><br></pre></td></tr></table></figure>
+
+<h5 id="proc-init-1"><a href="#proc-init-1" class="headerlink" title="proc_init()"></a>proc_init()</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This function is called when the module is loaded. */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">proc_init</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">/* creates the /proc/second entry */</span></span><br><span class="line">	proc_create(PROC_NAME, <span class="number">0666</span>, <span class="literal">NULL</span>, &amp;proc_ops);</span><br><span class="line">	t = jiffies;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In this fuction, when the file is created, we should store jiffies of this second using variable <code>t</code>.</p>
+<h5 id="proc-read-1"><a href="#proc-read-1" class="headerlink" title="proc_read()"></a>proc_read()</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* This function is called each time /proc/second is read */</span></span><br><span class="line"><span class="function"><span class="keyword">ssize_t</span> <span class="title">proc_read</span><span class="params">(struct file *file, <span class="keyword">char</span> __user *usr_buf, <span class="keyword">size_t</span> count, <span class="keyword">loff_t</span> *pos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> rv = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> <span class="built_in">buffer</span>[BUFFER_SIZE];</span><br><span class="line">	<span class="keyword">static</span> <span class="keyword">int</span> completed = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (completed) &#123;</span><br><span class="line">		completed = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	completed = <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	rv = <span class="built_in">sprintf</span>(<span class="built_in">buffer</span>, <span class="string">"%lu\n"</span>, (jiffies-t)/HZ);</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/* copies kernel space buffer to user space usr buf */</span></span><br><span class="line">	copy_to_user(usr_buf, <span class="built_in">buffer</span>, rv);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> rv;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In this fuction, we just need to caluculate the time by division. With the knowledge of c language, it is very easy to realize.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rv = <span class="built_in">sprintf</span>(<span class="built_in">buffer</span>, <span class="string">"%lu\n"</span>, (jiffies-t)/HZ);</span><br></pre></td></tr></table></figure>
+
+<p>What is a little bit difficult is that we need to learn how to formatted output, which is a little bit different from it in python.</p>
+<h3 id="Result-Picture-1"><a href="#Result-Picture-1" class="headerlink" title="Result Picture"></a>Result Picture</h3><p><img alt="5252ef844a68cb36bc25a949e6a7302" class="post-img b-lazy" href="/ei338-project1/5252ef844a68cb36bc25a949e6a7302.png" data-src="/ei338-project1/5252ef844a68cb36bc25a949e6a7302.png"></p>
+<p><img alt="0c3ae5c422d757562214cacf4b6dfab" class="post-img b-lazy" href="/ei338-project1/0c3ae5c422d757562214cacf4b6dfab.png" data-src="/ei338-project1/0c3ae5c422d757562214cacf4b6dfab.png"></p>
+<p>In the command line, we can see the second has been calculated and shown on the screen.</p>
+<p>These pictures do not contain <code>s</code> in the output, but it is also very easy to add it.</p>
+<p>Just change my former code to</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rv = <span class="built_in">sprintf</span>(<span class="built_in">buffer</span>, <span class="string">"%lus\n"</span>, (jiffies-t)/HZ);</span><br></pre></td></tr></table></figure>
+
+<p>can solve this problem.(I change it when I check my code with TA, while the pictures are out of date.)</p>
+
+                </article>
+				
+				
+					<div class="me">
+						<my_post_copyright>
+						  <p><span>本文标题: </span><a href="/ei338-project1/">Operating System-Project 1</a></p>
+						  <p><span>文章作者: </span><a href="/" title="访问 David Stark 的个人博客">David Stark</a></p>
+						  <p><span>发布时间: </span>2019年10月18日 - 14:10</p>
+						  <p><span>最后更新: </span>2019年10月18日 - 16:10</p>
+						  <p><span id="busuanzi_container_page_pv">本文累计阅读：<span id="busuanzi_value_page_pv"></span></span></p>					  
+						  <p><span>原始链接: </span><a href="/ei338-project1/" title="Operating System-Project 1">https://starky99.com/ei338-project1/</a></p></my_post_copyright></div>
+				
+				
+				<div>
+					
+						<div style="text-align:center;color:#787878;font-size:14px;">---本文结束✔感谢阅读---</div>
+					
+				</div>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag"># 课程</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="LaTex中的常用数学符号" href="/latex-math-mark/">
+            ← LaTex中的常用数学符号
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="人间失格" href="/no-longer-human/">
+            人间失格 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#EI338-Project1"><span class="toc-text">EI338 Project1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Project-Environment"><span class="toc-text">Project Environment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Jiffies"><span class="toc-text">1. Jiffies</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Question"><span class="toc-text">Question</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Answer"><span class="toc-text">Answer</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#proc-File-System"><span class="toc-text">&#x2F;proc File System</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#proc-init"><span class="toc-text">proc_init()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#proc-exit-void"><span class="toc-text">proc_exit(void)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#proc-read"><span class="toc-text">proc_read()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Makefile"><span class="toc-text">Makefile</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Result-Picture"><span class="toc-text">Result Picture</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-second"><span class="toc-text">2. second</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Question-1"><span class="toc-text">Question</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Answer-1"><span class="toc-text">Answer</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#proc-init-1"><span class="toc-text">proc_init()</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#proc-read-1"><span class="toc-text">proc_read()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Result-Picture-1"><span class="toc-text">Result Picture</span></a></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; David Stark &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/leetcode-python-auto-show/">LeetCode自动展示</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/windows-subsystem-ubuntu/">Windows子系统Ubuntu</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/when-to-buy-iPhone11Pro/">iPhone 11 Pro 冲冲冲</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/words/">文字</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">算法</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/Django/" style="font-size: 15.43px;">Django</a> <a href="/tags/Dlib/" style="font-size: 14px;">Dlib</a> <a href="/tags/LeetCode/" style="font-size: 14px;">LeetCode</a> <a href="/tags/ubuntu/" style="font-size: 15.43px;">Ubuntu</a> <a href="/tags/blog/" style="font-size: 18.29px;">blog</a> <a href="/tags/docker/" style="font-size: 16.86px;">docker</a> <a href="/tags/1point3acra/" style="font-size: 16.86px;">一亩三分地</a> <a href="/tags/history/" style="font-size: 14px;">历史</a> <a href="/tags/love/" style="font-size: 18.29px;">恋爱</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 19.71px;">数据结构</a> <a href="/tags/travel/" style="font-size: 18.29px;">旅行</a> <a href="/tags/summerApply/" style="font-size: 14px;">暑研</a> <a href="/tags/%E6%9D%82/" style="font-size: 14px;">杂</a> <a href="/tags/others/" style="font-size: 14px;">杂记</a> <a href="/tags/%E6%AF%8F%E5%A4%A9%E9%83%BD%E5%9C%A8%E8%BF%9B%E6%AD%A5/" style="font-size: 14px;">每天都在进步</a> <a href="/tags/environment/" style="font-size: 16.86px;">环境</a> <a href="/tags/masterApply/" style="font-size: 14px;">研究生申请</a> <a href="/tags/programmer/" style="font-size: 21.14px;">程序员</a> <a href="/tags/america/" style="font-size: 16.86px;">美国</a> <a href="/tags/work/" style="font-size: 16.86px;">职场</a> <a href="/tags/english/" style="font-size: 14px;">英文</a> <a href="/tags/plan/" style="font-size: 14px;">规划</a> <a href="/tags/book/" style="font-size: 22.57px;">读书笔记</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 24px;">课程</a> <a href="/tags/%E9%A2%98/" style="font-size: 14px;">题</a> <a href="/tags/soup/" style="font-size: 14px;">鸡汤</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="David Stark">David Stark</a>
+			&copy; 2020
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://www.zhihu.com/lives/users/5a60f1248f4a9d4c5994ceb0ad681ca1" title="欢迎支持我的知乎Live💗" target="_blank" rel="noopener">欢迎支持我的知乎Live💗</a>
+			
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>if(window.navigator && navigator.serviceWorker) {navigator.serviceWorker.getRegistrations().then(function(registrations) {for(let registration of registrations) {registration.unregister()}})}</script>
+
+
+<script async src="/js/allinone.min.js" id="scriptLoad"></script>
+
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        var bLazy = new Blazy()
+    })
+</script>
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="David Stark">
+			
+                <img src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark icon">
+			
+            <span>David Stark</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Operating System-Project 1</div>
+    <progress class="progress" value="0">
+        <span class="progress-container">
+            <span class="progress-bar"></span>
+        </span>
+    </progress>
+</div>
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        postProgressBar()
+    })
+</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script async src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script async src="https://unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<script>
+    window.addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: '',
+            appKey: '',
+            placeholder: 'Just go go',
+            pageSize: 10,
+            avatar: 'mm',
+            visitor: true,
+        })
+    });
+</script>
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function(){
+        searchFunc("/")
+    });
+</script>
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<style type="text/css">	
+	p.me{font-size: 60%}
+	div.me{
+		line-height: 60%;
+		font-size: 60%;
+		border-style: solid;
+		border-color: #ff0000 #00ff00 #0000ff rgb(250,0,255);
+		padding: 3px 2px;
+		background-color: lightyellow }
+	</style>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//pic.zhih.me">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+	<link rel="preload" href="https://pic.zhih.me/blog/header.jpg" as="image">
+
+	<title>博客-CSS颜色 | David Stark</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="David Stark">
+	<meta name="description" content="CSS颜色是通过对红、绿和蓝光的组合来显示的。">
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	<link rel="apple-touch-icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="David Stark">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="博客-CSS颜色 | David Stark">
+	<meta property="og:description" content="CSS颜色是通过对红、绿和蓝光的组合来显示的。">
+	<meta property="og:url" content="https://starky99.com/blog-css/">
+
+	
+	<meta property="article:published_time" content="2019-07-28T18:07:00+08:00"> 
+	<meta property="article:author" content="David Stark">
+	<meta property="article:published_first" content="David Stark, /blog-css/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144747730-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-144747730-1');
+	</script>
+	
+	
+	
+<link rel="canonical" href="https://starky99.com/blog-css/">
+
+
+
+
+
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">🏠</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/me" title="我🌞">我🌞</a>
+            </li>
+            
+            <li>
+                <a href="/tags/love" title="Love💕">Love💕</a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/david990917/My-LeetCode-Solutions" target="_blank" rel="noopener" title="我的LeetCode题解✅">我的LeetCode题解✅</a>
+            </li>
+            
+            <li>
+                <a href="https://starky99.com/myBlog/" title="我的博客特性😃">我的博客特性😃</a>
+            </li>
+            
+            <li>
+                <a href="/storage" title="Storage💎">Storage💎</a>
+            </li>
+            
+            <li>
+                <a href="https://s3.console.aws.amazon.com/s3/buckets/starky99/?region=ap-south-1&tab=overview" target="_blank" rel="noopener" title="AWS S3 ☁">AWS S3 ☁</a>
+            </li>
+            
+            <li>
+                <a href="/my20" title="MY20👦">MY20👦</a>
+            </li>
+            
+            <li>
+                <a href="/my2019" title="MY2019💪">MY2019💪</a>
+            </li>
+            
+			
+            
+			
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+	
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/david990917" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/49026226" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+	
+    
+    <a class="social-link" title="zhihu" href="https://www.zhihu.com/people/david990917" target="_blank" rel="noopener">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewbox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">  <image id="image0" width="32" height="32" x="0" y="0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
+cwAACxMAAAsTAQCanBgAAAAHdElNRQfjBhYSDxAju0XaAAABIklEQVQ4y2NgGF5A3wurMBOMYXWa
+F6sCFhgj+982CIONG0L//cTAwMDAwAiV53rBdp2BgYHhf6TZIojIFV0UEwJ4D7124NrGwCDAwLDi
+NgMDQyaaVQc+8jIce8LAwMAQ+9+HgYGB4dplFEcaqUV8ZmD5g9uRt2T/MjCw/cSt4AsDAwMD2zc8
+3gwVZWAQ/ZjFwHAaezBa/IeBTWiOhJpwQ5OBQeD4ygYGhm/2WK348IGBwZLhzA08ccHA4MBgUIxX
+QeR78e4oPAq8dTeE3Z5nw8DAIMzMICbDgq6S+9Z/Uwb194cZYv//D5vz7///y6jyjEv/r2ZgYHA9
+zaBddvPft56ysiRUm6b+vyfKwMDAoMPAwFC/SwXDKZ5LygThHB6GYQcAq/1Vz+pfeiUAAAAldEVY
+dGRhdGU6Y3JlYXRlADIwMTktMDYtMjNUMDE6MTU6MTYtMDc6MDCq/xEoAAAAJXRFWHRkYXRlOm1v
+ZGlmeQAyMDE5LTA2LTIzVDAxOjE1OjE2LTA3OjAw26KplAAAAABJRU5ErkJggg==">
+</image></svg>
+
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+    
+	</div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2019-07-28T10:24:19.000Z">
+                    2019-07-28
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/tech/">技术</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">博客-CSS颜色</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://images.pexels.com/photos/839443/pexels-photo-839443.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="lightgallery" class="markdown-body">
+                    <div id="maincontent">
+
+<h1>CSS 颜色</h1>
+
+<div id="intro">
+<p>颜色是通过对红、绿和蓝光的组合来显示的。</p>
+</div>
+<div>
+<h2>颜色值</h2>
+
+<p>CSS 颜色使用组合了红绿蓝颜色值 (RGB) 的十六进制 (hex) 表示法进行定义。对光源进行设置的最低值可以是 0（十六进制 00）。最高值是 255（十六进制 FF）。</p>
+<p>十六进制值使用三个双位数来编写，并以 # 符号开头。</p>
+<table class="dataintable">
+  <tbody><tr>
+<th style="width:50%; text-align:left;">颜色</th>
+<th style="width:25%; text-align:left;">颜色 HEX</th>
+<th style="width:25%; text-align:left;">颜色 RGB</th>
+  </tr>
+  <tr>
+    <td style="background-color:#000000">&nbsp;</td>
+    <td>#000000</td>
+    <td>rgb(0,0,0)</td>
+  </tr>
+  <tr>
+    <td style="background-color:#FF0000">&nbsp;</td>
+    <td>#FF0000</td>
+    <td>rgb(255,0,0)</td>
+  </tr>
+  <tr>
+    <td style="background-color:#00FF00">&nbsp;</td>
+    <td>#00FF00</td>
+    <td>rgb(0,255,0)</td>
+  </tr>
+  <tr>
+    <td style="background-color:#0000FF">&nbsp;</td>
+    <td>#0000FF</td>
+    <td>rgb(0,0,255)</td>
+  </tr>
+  <tr>
+    <td style="background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">&nbsp;</td>
+    <td>#FFFF00</td>
+    <td>rgb(255,255,0)</td>
+  </tr>
+  <tr>
+    <td style="background-color:#00FFFF">&nbsp;</td>
+    <td>#00FFFF</td>
+    <td>rgb(0,255,255)</td>
+  </tr>
+  <tr>
+    <td style="background-color:#FF00FF">&nbsp;</td>
+    <td>#FF00FF</td>
+    <td>rgb(255,0,255)</td>
+  </tr>
+  <tr>
+    <td style="background-color:#C0C0C0">&nbsp;</td>
+    <td>#C0C0C0</td>
+    <td>rgb(192,192,192)</td>
+  </tr>
+  <tr>
+    <td style="background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">&nbsp;</td>
+    <td>#FFFFFF</td>
+    <td>rgb(255,255,255)</td>
+  </tr>
+</tbody></table>
+
+
+
+
+<div>
+<h2>1600 万种不同的颜色</h2>
+
+<p>从 0 到 255 种红绿蓝值能够组合出总共超过一千六百万种不同的颜色（根据 256 x 256 x 256 计算）。</p>
+<p>大多数现代的显示器都能显示出至少 16384 种不同的颜色。</p>
+<p>如果您查看下面的表格，您将看到红光从 0 到 255 变化后的结果，此时绿光和蓝光为零。</p>
+<p>如需查看红光由 0 向 255 变化的完整颜色混合器列表，请点击下面的十六进制值或 rgb 值。</p>
+<table class="dataintable">
+<tbody><tr>
+<th style="width:50%">Red Light</th>
+<th style="width:25%">HEX</th>
+<th style="width:25%">RGB</th>
+</tr>
+
+<tr>
+<td style="background-color:#000000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=0">#000000</a></td>
+<td><a href="css_colorsmore.asp?color=0">rgb(0,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#080000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=8">#080000</a></td>
+<td><a href="css_colorsmore.asp?color=8">rgb(8,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#100000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=16">#100000</a></td>
+<td><a href="css_colorsmore.asp?color=16">rgb(16,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#180000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=24">#180000</a></td>
+<td><a href="css_colorsmore.asp?color=24">rgb(24,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#200000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=32">#200000</a></td>
+<td><a href="css_colorsmore.asp?color=32">rgb(32,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#280000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=40">#280000</a></td>
+<td><a href="css_colorsmore.asp?color=40">rgb(40,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#300000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=48">#300000</a></td>
+<td><a href="css_colorsmore.asp?color=48">rgb(48,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#380000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=56">#380000</a></td>
+<td><a href="css_colorsmore.asp?color=56">rgb(56,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#400000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=64">#400000</a></td>
+<td><a href="css_colorsmore.asp?color=64">rgb(64,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#480000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=72">#480000</a></td>
+<td><a href="css_colorsmore.asp?color=72">rgb(72,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#500000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=80">#500000</a></td>
+<td><a href="css_colorsmore.asp?color=80">rgb(80,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#580000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=88">#580000</a></td>
+<td><a href="css_colorsmore.asp?color=88">rgb(88,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#600000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=96">#600000</a></td>
+<td><a href="css_colorsmore.asp?color=96">rgb(96,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#680000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=104">#680000</a></td>
+<td><a href="css_colorsmore.asp?color=104">rgb(104,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#700000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=112">#700000</a></td>
+<td><a href="css_colorsmore.asp?color=112">rgb(112,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#780000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=120">#780000</a></td>
+<td><a href="css_colorsmore.asp?color=120">rgb(120,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#800000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=128">#800000</a></td>
+<td><a href="css_colorsmore.asp?color=128">rgb(128,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#880000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=136">#880000</a></td>
+<td><a href="css_colorsmore.asp?color=136">rgb(136,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#900000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=144">#900000</a></td>
+<td><a href="css_colorsmore.asp?color=144">rgb(144,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#980000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=152">#980000</a></td>
+<td><a href="css_colorsmore.asp?color=152">rgb(152,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#A00000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=160">#A00000</a></td>
+<td><a href="css_colorsmore.asp?color=160">rgb(160,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#A80000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=168">#A80000</a></td>
+<td><a href="css_colorsmore.asp?color=168">rgb(168,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#B00000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=176">#B00000</a></td>
+<td><a href="css_colorsmore.asp?color=176">rgb(176,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#B80000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=184">#B80000</a></td>
+<td><a href="css_colorsmore.asp?color=184">rgb(184,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#C00000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=192">#C00000</a></td>
+<td><a href="css_colorsmore.asp?color=192">rgb(192,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#C80000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=200">#C80000</a></td>
+<td><a href="css_colorsmore.asp?color=200">rgb(200,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#D00000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=208">#D00000</a></td>
+<td><a href="css_colorsmore.asp?color=208">rgb(208,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#D80000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=216">#D80000</a></td>
+<td><a href="css_colorsmore.asp?color=216">rgb(216,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#E00000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=224">#E00000</a></td>
+<td><a href="css_colorsmore.asp?color=224">rgb(224,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#E80000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=232">#E80000</a></td>
+<td><a href="css_colorsmore.asp?color=232">rgb(232,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#F00000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=240">#F00000</a></td>
+<td><a href="css_colorsmore.asp?color=240">rgb(240,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#F80000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=248">#F80000</a></td>
+<td><a href="css_colorsmore.asp?color=248">rgb(248,0,0)</a></td>
+</tr>
+
+<tr>
+<td style="background-color:#FF0000">&nbsp;</td>
+<td><a href="css_colorsmore.asp?color=255">#FF0000</a></td>
+<td><a href="css_colorsmore.asp?color=255">rgb(255,0,0)</a></td>
+</tr>
+
+</tbody></table>
+</div>
+
+
+<div>
+<h2>灰阶</h2>
+
+<p>灰色使用所有光源的等量的光线来显示。为了让您更方便地选择正确的灰色，我们已经为您编辑了一个灰色列表：</p>
+<table class="dataintable">
+<tbody><tr>
+<th style="width:50%;">灰阶</th>
+<th style="width:25%;">HEX</th>
+<th style="width:25%;">RGB</th>
+</tr>
+
+<tr>
+<td style="background-color:#000000;"></td>
+<td>#000000</td>
+<td>rgb(0,0,0)</td>
+</tr>
+
+<tr>
+<td style="background-color:#080808;"></td>
+<td>#080808</td>
+<td>rgb(8,8,8)</td>
+</tr>
+
+<tr>
+<td style="background-color:#101010;"></td>
+<td>#101010</td>
+<td>rgb(16,16,16)</td>
+</tr>
+
+<tr>
+<td style="background-color:#181818;"></td>
+<td>#181818</td>
+<td>rgb(24,24,24)</td>
+</tr>
+
+<tr>
+<td style="background-color:#202020;"></td>
+<td>#202020</td>
+<td>rgb(32,32,32)</td>
+</tr>
+
+<tr>
+<td style="background-color:#282828;"></td>
+<td>#282828</td>
+<td>rgb(40,40,40)</td>
+</tr>
+
+<tr>
+<td style="background-color:#303030;"></td>
+<td>#303030</td>
+<td>rgb(48,48,48)</td>
+</tr>
+
+<tr>
+<td style="background-color:#383838;"></td>
+<td>#383838</td>
+<td>rgb(56,56,56)</td>
+</tr>
+
+<tr>
+<td style="background-color:#404040;"></td>
+<td>#404040</td>
+<td>rgb(64,64,64)</td>
+</tr>
+
+<tr>
+<td style="background-color:#484848;"></td>
+<td>#484848</td>
+<td>rgb(72,72,72)</td>
+</tr>
+
+<tr>
+<td style="background-color:#505050;"></td>
+<td>#505050</td>
+<td>rgb(80,80,80)</td>
+</tr>
+
+<tr>
+<td style="background-color:#585858;"></td>
+<td>#585858</td>
+<td>rgb(88,88,88)</td>
+</tr>
+
+<tr>
+<td style="background-color:#606060;"></td>
+<td>#606060</td>
+<td>rgb(96,96,96)</td>
+</tr>
+
+<tr>
+<td style="background-color:#686868;"></td>
+<td>#686868</td>
+<td>rgb(104,104,104)</td>
+</tr>
+
+<tr>
+<td style="background-color:#707070;"></td>
+<td>#707070</td>
+<td>rgb(112,112,112)</td>
+</tr>
+
+<tr>
+<td style="background-color:#787878;"></td>
+<td>#787878</td>
+<td>rgb(120,120,120)</td>
+</tr>
+
+<tr>
+<td style="background-color:#808080;"></td>
+<td>#808080</td>
+<td>rgb(128,128,128)</td>
+</tr>
+
+<tr>
+<td style="background-color:#888888;"></td>
+<td>#888888</td>
+<td>rgb(136,136,136)</td>
+</tr>
+
+<tr>
+<td style="background-color:#909090;"></td>
+<td>#909090</td>
+<td>rgb(144,144,144)</td>
+</tr>
+
+<tr>
+<td style="background-color:#989898;"></td>
+<td>#989898</td>
+<td>rgb(152,152,152)</td>
+</tr>
+
+<tr>
+<td style="background-color:#A0A0A0;"></td>
+<td>#A0A0A0</td>
+<td>rgb(160,160,160)</td>
+</tr>
+
+<tr>
+<td style="background-color:#A8A8A8;"></td>
+<td>#A8A8A8</td>
+<td>rgb(168,168,168)</td>
+</tr>
+
+<tr>
+<td style="background-color:#B0B0B0;"></td>
+<td>#B0B0B0</td>
+<td>rgb(176,176,176)</td>
+</tr>
+
+<tr>
+<td style="background-color:#B8B8B8;"></td>
+<td>#B8B8B8</td>
+<td>rgb(184,184,184)</td>
+</tr>
+
+<tr>
+<td style="background-color:#C0C0C0;"></td>
+<td>#C0C0C0</td>
+<td>rgb(192,192,192)</td>
+</tr>
+
+<tr>
+<td style="background-color:#C8C8C8;"></td>
+<td>#C8C8C8</td>
+<td>rgb(200,200,200)</td>
+</tr>
+
+<tr>
+<td style="background-color:#D0D0D0;"></td>
+<td>#D0D0D0</td>
+<td>rgb(208,208,208)</td>
+</tr>
+
+<tr>
+<td style="background-color:#D8D8D8;"></td>
+<td>#D8D8D8</td>
+<td>rgb(216,216,216)</td>
+</tr>
+
+<tr>
+<td style="background-color:#E0E0E0;"></td>
+<td>#E0E0E0</td>
+<td>rgb(224,224,224)</td>
+</tr>
+
+<tr>
+<td style="background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed"></td>
+<td>#E8E8E8</td>
+<td>rgb(232,232,232)</td>
+</tr>
+
+<tr>
+<td style="background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed"></td>
+<td>#F0F0F0</td>
+<td>rgb(240,240,240)</td>
+</tr>
+
+<tr>
+<td style="background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed"></td>
+<td>#F8F8F8</td>
+<td>rgb(248,248,248)</td>
+</tr>
+
+<tr>
+<td style="background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed"></td>
+<td>#FFFFFF</td>
+<td>rgb(255,255,255)</td>
+</tr>
+</tbody></table>
+</div>
+
+
+<div>
+<h2>网络安全色？</h2>
+
+<p>多年前，当电脑只支持最多 256 种颜色时，216 种“网络安全色”列表被定义为 Web 标准，并保留了 40 种固定的系统颜色。</p>
+<p>现在，这些都不重要了，因为大多数电脑都能显示数百万种颜色，但是选择权依然在您手里。</p>
+<p>这个 216 跨浏览器调色板被创建的目的是确保当计算机运行 256 色调色板时能够正确地显示颜色：</p>
+<table class="dataintable" style="text-align:center;">
+<tbody><tr>
+<td style="color:#ffffff; background-color:#000000;">000000</td>
+<td style="color:#ffffff; background-color:#000033;">000033</td>
+<td style="color:#ffffff; background-color:#000066;">000066</td>
+<td style="color:#ffffff; background-color:#000099;">000099</td>
+<td style="color:#ffffff; background-color:#0000CC;">0000CC</td>
+<td style="color:#ffffff; background-color:#0000FF;">0000FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#003300;">003300</td>
+<td style="color:#ffffff; background-color:#003333;">003333</td>
+<td style="color:#ffffff; background-color:#003366;">003366</td>
+<td style="color:#ffffff; background-color:#003399;">003399</td>
+<td style="color:#ffffff; background-color:#0033CC;">0033CC</td>
+<td style="color:#ffffff; background-color:#0033FF;">0033FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#006600;">006600</td>
+<td style="color:#ffffff; background-color:#006633;">006633</td>
+<td style="color:#ffffff; background-color:#006666;">006666</td>
+<td style="color:#ffffff; background-color:#006699;">006699</td>
+<td style="color:#ffffff; background-color:#0066CC;">0066CC</td>
+<td style="color:#ffffff; background-color:#0066FF;">0066FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#009900;">009900</td>
+<td style="color:#000000; background-color:#009933;">009933</td>
+<td style="color:#000000; background-color:#009966;">009966</td>
+<td style="color:#000000; background-color:#009999;">009999</td>
+<td style="color:#000000; background-color:#0099CC;">0099CC</td>
+<td style="color:#000000; background-color:#0099FF;">0099FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#00CC00;">00CC00</td>
+<td style="color:#000000; background-color:#00CC33;">00CC33</td>
+<td style="color:#000000; background-color:#00CC66;">00CC66</td>
+<td style="color:#000000; background-color:#00CC99;">00CC99</td>
+<td style="color:#000000; background-color:#00CCCC;">00CCCC</td>
+<td style="color:#000000; background-color:#00CCFF;">00CCFF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#00FF00;">00FF00</td>
+<td style="color:#000000; background-color:#00FF33;">00FF33</td>
+<td style="color:#000000; background-color:#00FF66;">00FF66</td>
+<td style="color:#000000; background-color:#00FF99;">00FF99</td>
+<td style="color:#000000; background-color:#00FFCC;">00FFCC</td>
+<td style="color:#000000; background-color:#00FFFF;">00FFFF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#330000;">330000</td>
+<td style="color:#ffffff; background-color:#330033;">330033</td>
+<td style="color:#ffffff; background-color:#330066;">330066</td>
+<td style="color:#ffffff; background-color:#330099;">330099</td>
+<td style="color:#ffffff; background-color:#3300CC;">3300CC</td>
+<td style="color:#ffffff; background-color:#3300FF;">3300FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#333300;">333300</td>
+<td style="color:#ffffff; background-color:#333333;">333333</td>
+<td style="color:#ffffff; background-color:#333366;">333366</td>
+<td style="color:#ffffff; background-color:#333399;">333399</td>
+<td style="color:#ffffff; background-color:#3333CC;">3333CC</td>
+<td style="color:#ffffff; background-color:#3333FF;">3333FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#336600;">336600</td>
+<td style="color:#ffffff; background-color:#336633;">336633</td>
+<td style="color:#ffffff; background-color:#336666;">336666</td>
+<td style="color:#ffffff; background-color:#336699;">336699</td>
+<td style="color:#ffffff; background-color:#3366CC;">3366CC</td>
+<td style="color:#ffffff; background-color:#3366FF;">3366FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#339900;">339900</td>
+<td style="color:#000000; background-color:#339933;">339933</td>
+<td style="color:#000000; background-color:#339966;">339966</td>
+<td style="color:#000000; background-color:#339999;">339999</td>
+<td style="color:#000000; background-color:#3399CC;">3399CC</td>
+<td style="color:#000000; background-color:#3399FF;">3399FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#33CC00;">33CC00</td>
+<td style="color:#000000; background-color:#33CC33;">33CC33</td>
+<td style="color:#000000; background-color:#33CC66;">33CC66</td>
+<td style="color:#000000; background-color:#33CC99;">33CC99</td>
+<td style="color:#000000; background-color:#33CCCC;">33CCCC</td>
+<td style="color:#000000; background-color:#33CCFF;">33CCFF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#33FF00;">33FF00</td>
+<td style="color:#000000; background-color:#33FF33;">33FF33</td>
+<td style="color:#000000; background-color:#33FF66;">33FF66</td>
+<td style="color:#000000; background-color:#33FF99;">33FF99</td>
+<td style="color:#000000; background-color:#33FFCC;">33FFCC</td>
+<td style="color:#000000; background-color:#33FFFF;">33FFFF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#660000;">660000</td>
+<td style="color:#ffffff; background-color:#660033;">660033</td>
+<td style="color:#ffffff; background-color:#660066;">660066</td>
+<td style="color:#ffffff; background-color:#660099;">660099</td>
+<td style="color:#ffffff; background-color:#6600CC;">6600CC</td>
+<td style="color:#ffffff; background-color:#6600FF;">6600FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#663300;">663300</td>
+<td style="color:#ffffff; background-color:#663333;">663333</td>
+<td style="color:#ffffff; background-color:#663366;">663366</td>
+<td style="color:#ffffff; background-color:#663399;">663399</td>
+<td style="color:#ffffff; background-color:#6633CC;">6633CC</td>
+<td style="color:#ffffff; background-color:#6633FF;">6633FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#666600;">666600</td>
+<td style="color:#ffffff; background-color:#666633;">666633</td>
+<td style="color:#ffffff; background-color:#666666;">666666</td>
+<td style="color:#ffffff; background-color:#666699;">666699</td>
+<td style="color:#ffffff; background-color:#6666CC;">6666CC</td>
+<td style="color:#ffffff; background-color:#6666FF;">6666FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#669900;">669900</td>
+<td style="color:#000000; background-color:#669933;">669933</td>
+<td style="color:#000000; background-color:#669966;">669966</td>
+<td style="color:#000000; background-color:#669999;">669999</td>
+<td style="color:#000000; background-color:#6699CC;">6699CC</td>
+<td style="color:#000000; background-color:#6699FF;">6699FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#66CC00;">66CC00</td>
+<td style="color:#000000; background-color:#66CC33;">66CC33</td>
+<td style="color:#000000; background-color:#66CC66;">66CC66</td>
+<td style="color:#000000; background-color:#66CC99;">66CC99</td>
+<td style="color:#000000; background-color:#66CCCC;">66CCCC</td>
+<td style="color:#000000; background-color:#66CCFF;">66CCFF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#66FF00;">66FF00</td>
+<td style="color:#000000; background-color:#66FF33;">66FF33</td>
+<td style="color:#000000; background-color:#66FF66;">66FF66</td>
+<td style="color:#000000; background-color:#66FF99;">66FF99</td>
+<td style="color:#000000; background-color:#66FFCC;">66FFCC</td>
+<td style="color:#000000; background-color:#66FFFF;">66FFFF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#990000;">990000</td>
+<td style="color:#ffffff; background-color:#990033;">990033</td>
+<td style="color:#ffffff; background-color:#990066;">990066</td>
+<td style="color:#ffffff; background-color:#990099;">990099</td>
+<td style="color:#ffffff; background-color:#9900CC;">9900CC</td>
+<td style="color:#ffffff; background-color:#9900FF;">9900FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#993300;">993300</td>
+<td style="color:#ffffff; background-color:#993333;">993333</td>
+<td style="color:#ffffff; background-color:#993366;">993366</td>
+<td style="color:#ffffff; background-color:#993399;">993399</td>
+<td style="color:#ffffff; background-color:#9933CC;">9933CC</td>
+<td style="color:#ffffff; background-color:#9933FF;">9933FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#996600;">996600</td>
+<td style="color:#ffffff; background-color:#996633;">996633</td>
+<td style="color:#ffffff; background-color:#996666;">996666</td>
+<td style="color:#ffffff; background-color:#996699;">996699</td>
+<td style="color:#ffffff; background-color:#9966CC;">9966CC</td>
+<td style="color:#ffffff; background-color:#9966FF;">9966FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#999900;">999900</td>
+<td style="color:#000000; background-color:#999933;">999933</td>
+<td style="color:#000000; background-color:#999966;">999966</td>
+<td style="color:#000000; background-color:#999999;">999999</td>
+<td style="color:#000000; background-color:#9999CC;">9999CC</td>
+<td style="color:#000000; background-color:#9999FF;">9999FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#99CC00;">99CC00</td>
+<td style="color:#000000; background-color:#99CC33;">99CC33</td>
+<td style="color:#000000; background-color:#99CC66;">99CC66</td>
+<td style="color:#000000; background-color:#99CC99;">99CC99</td>
+<td style="color:#000000; background-color:#99CCCC;">99CCCC</td>
+<td style="color:#000000; background-color:#99CCFF;">99CCFF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#99FF00;">99FF00</td>
+<td style="color:#000000; background-color:#99FF33;">99FF33</td>
+<td style="color:#000000; background-color:#99FF66;">99FF66</td>
+<td style="color:#000000; background-color:#99FF99;">99FF99</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">99FFCC</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">99FFFF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#CC0000;">CC0000</td>
+<td style="color:#ffffff; background-color:#CC0033;">CC0033</td>
+<td style="color:#ffffff; background-color:#CC0066;">CC0066</td>
+<td style="color:#ffffff; background-color:#CC0099;">CC0099</td>
+<td style="color:#ffffff; background-color:#CC00CC;">CC00CC</td>
+<td style="color:#ffffff; background-color:#CC00FF;">CC00FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#CC3300;">CC3300</td>
+<td style="color:#ffffff; background-color:#CC3333;">CC3333</td>
+<td style="color:#ffffff; background-color:#CC3366;">CC3366</td>
+<td style="color:#ffffff; background-color:#CC3399;">CC3399</td>
+<td style="color:#ffffff; background-color:#CC33CC;">CC33CC</td>
+<td style="color:#ffffff; background-color:#CC33FF;">CC33FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#CC6600;">CC6600</td>
+<td style="color:#ffffff; background-color:#CC6633;">CC6633</td>
+<td style="color:#ffffff; background-color:#CC6666;">CC6666</td>
+<td style="color:#ffffff; background-color:#CC6699;">CC6699</td>
+<td style="color:#ffffff; background-color:#CC66CC;">CC66CC</td>
+<td style="color:#ffffff; background-color:#CC66FF;">CC66FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#CC9900;">CC9900</td>
+<td style="color:#000000; background-color:#CC9933;">CC9933</td>
+<td style="color:#000000; background-color:#CC9966;">CC9966</td>
+<td style="color:#000000; background-color:#CC9999;">CC9999</td>
+<td style="color:#000000; background-color:#CC99CC;">CC99CC</td>
+<td style="color:#000000; background-color:#CC99FF;">CC99FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#CCCC00;">CCCC00</td>
+<td style="color:#000000; background-color:#CCCC33;">CCCC33</td>
+<td style="color:#000000; background-color:#CCCC66;">CCCC66</td>
+<td style="color:#000000; background-color:#CCCC99;">CCCC99</td>
+<td style="color:#000000; background-color:#CCCCCC;">CCCCCC</td>
+<td style="color:#000000; background-color:#CCCCFF;">CCCCFF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#CCFF00;">CCFF00</td>
+<td style="color:#000000; background-color:#CCFF33;">CCFF33</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">CCFF66</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">CCFF99</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">CCFFCC</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">CCFFFF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#FF0000;">FF0000</td>
+<td style="color:#ffffff; background-color:#FF0033;">FF0033</td>
+<td style="color:#ffffff; background-color:#FF0066;">FF0066</td>
+<td style="color:#ffffff; background-color:#FF0099;">FF0099</td>
+<td style="color:#ffffff; background-color:#FF00CC;">FF00CC</td>
+<td style="color:#ffffff; background-color:#FF00FF;">FF00FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#FF3300;">FF3300</td>
+<td style="color:#ffffff; background-color:#FF3333;">FF3333</td>
+<td style="color:#ffffff; background-color:#FF3366;">FF3366</td>
+<td style="color:#ffffff; background-color:#FF3399;">FF3399</td>
+<td style="color:#ffffff; background-color:#FF33CC;">FF33CC</td>
+<td style="color:#ffffff; background-color:#FF33FF;">FF33FF</td>
+</tr>
+
+<tr>
+<td style="color:#ffffff; background-color:#FF6600;">FF6600</td>
+<td style="color:#ffffff; background-color:#FF6633;">FF6633</td>
+<td style="color:#ffffff; background-color:#FF6666;">FF6666</td>
+<td style="color:#ffffff; background-color:#FF6699;">FF6699</td>
+<td style="color:#ffffff; background-color:#FF66CC;">FF66CC</td>
+<td style="color:#ffffff; background-color:#FF66FF;">FF66FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#FF9900;">FF9900</td>
+<td style="color:#000000; background-color:#FF9933;">FF9933</td>
+<td style="color:#000000; background-color:#FF9966;">FF9966</td>
+<td style="color:#000000; background-color:#FF9999;">FF9999</td>
+<td style="color:#000000; background-color:#FF99CC;">FF99CC</td>
+<td style="color:#000000; background-color:#FF99FF;">FF99FF</td>
+</tr>
+
+<tr>
+<td style="color:#000000; background-color:#FFCC00;">FFCC00</td>
+<td style="color:#000000; background-color:#FFCC33;">FFCC33</td>
+<td style="color:#000000; background-color:#FFCC66;">FFCC66</td>
+<td style="color:#000000; background-color:#FFCC99;">FFCC99</td>
+<td style="color:#000000; background-color:#FFCCCC;">FFCCCC</td>
+<td style="color:#000000; background-color:#FFCCFF;">FFCCFF</td>
+</tr>
+
+<tr>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">FFFF00</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">FFFF33</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">FFFF66</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">FFFF99</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">FFFFCC</td>
+<td style="color: rgb(0, 0, 0); background-color: rgb(193, 230, 198); transition: background-color 0.3s ease 0s;" class="eye-protector-processed">FFFFFF</td>
+</tr>
+</tbody></table>
+</div></div></div>
+                </article>
+				
+				
+					<div class="me">
+						<my_post_copyright>
+						  <p><span>本文标题: </span><a href="/blog-css/">博客-CSS颜色</a></p>
+						  <p><span>文章作者: </span><a href="/" title="访问 David Stark 的个人博客">David Stark</a></p>
+						  <p><span>发布时间: </span>2019年07月28日 - 18:07</p>
+						  <p><span>最后更新: </span>2020年03月02日 - 17:03</p>
+						  <p><span id="busuanzi_container_page_pv">本文累计阅读：<span id="busuanzi_value_page_pv"></span></span></p>					  
+						  <p><span>原始链接: </span><a href="/blog-css/" title="博客-CSS颜色">https://starky99.com/blog-css/</a></p></my_post_copyright></div>
+				
+				
+				<div>
+					
+						<div style="text-align:center;color:#787878;font-size:14px;">---本文结束✔感谢阅读---</div>
+					
+				</div>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/blog/" rel="tag"># blog</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="Ubuntu16.04命令行安装Weblogic" href="/ubuntu16-install-weblogic10.3.6/">
+            ← Ubuntu16.04命令行安装Weblogic
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="Testpic" href="/blog-testPic/">
+            Testpic →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#maincontent"><span class="toc-text">CSS 颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#maincontent"><span class="toc-text">颜色值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maincontent"><span class="toc-text">1600 万种不同的颜色</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maincontent"><span class="toc-text">灰阶</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#maincontent"><span class="toc-text">网络安全色？</span></a></li></ol></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; David Stark &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/leetcode-python-auto-show/">LeetCode自动展示</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/windows-subsystem-ubuntu/">Windows子系统Ubuntu</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/when-to-buy-iPhone11Pro/">iPhone 11 Pro 冲冲冲</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/words/">文字</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">算法</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/Django/" style="font-size: 15.43px;">Django</a> <a href="/tags/Dlib/" style="font-size: 14px;">Dlib</a> <a href="/tags/LeetCode/" style="font-size: 14px;">LeetCode</a> <a href="/tags/ubuntu/" style="font-size: 15.43px;">Ubuntu</a> <a href="/tags/blog/" style="font-size: 18.29px;">blog</a> <a href="/tags/docker/" style="font-size: 16.86px;">docker</a> <a href="/tags/1point3acra/" style="font-size: 16.86px;">一亩三分地</a> <a href="/tags/history/" style="font-size: 14px;">历史</a> <a href="/tags/love/" style="font-size: 18.29px;">恋爱</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 19.71px;">数据结构</a> <a href="/tags/travel/" style="font-size: 18.29px;">旅行</a> <a href="/tags/summerApply/" style="font-size: 14px;">暑研</a> <a href="/tags/%E6%9D%82/" style="font-size: 14px;">杂</a> <a href="/tags/others/" style="font-size: 14px;">杂记</a> <a href="/tags/%E6%AF%8F%E5%A4%A9%E9%83%BD%E5%9C%A8%E8%BF%9B%E6%AD%A5/" style="font-size: 14px;">每天都在进步</a> <a href="/tags/environment/" style="font-size: 16.86px;">环境</a> <a href="/tags/masterApply/" style="font-size: 14px;">研究生申请</a> <a href="/tags/programmer/" style="font-size: 21.14px;">程序员</a> <a href="/tags/america/" style="font-size: 16.86px;">美国</a> <a href="/tags/work/" style="font-size: 16.86px;">职场</a> <a href="/tags/english/" style="font-size: 14px;">英文</a> <a href="/tags/plan/" style="font-size: 14px;">规划</a> <a href="/tags/book/" style="font-size: 22.57px;">读书笔记</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 24px;">课程</a> <a href="/tags/%E9%A2%98/" style="font-size: 14px;">题</a> <a href="/tags/soup/" style="font-size: 14px;">鸡汤</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="David Stark">David Stark</a>
+			&copy; 2020
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://www.zhihu.com/lives/users/5a60f1248f4a9d4c5994ceb0ad681ca1" title="欢迎支持我的知乎Live💗" target="_blank" rel="noopener">欢迎支持我的知乎Live💗</a>
+			
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>if(window.navigator && navigator.serviceWorker) {navigator.serviceWorker.getRegistrations().then(function(registrations) {for(let registration of registrations) {registration.unregister()}})}</script>
+
+
+<script async src="/js/allinone.min.js" id="scriptLoad"></script>
+
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        var bLazy = new Blazy()
+    })
+</script>
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="David Stark">
+			
+                <img src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark icon">
+			
+            <span>David Stark</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">博客-CSS颜色</div>
+    <progress class="progress" value="0">
+        <span class="progress-container">
+            <span class="progress-bar"></span>
+        </span>
+    </progress>
+</div>
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        postProgressBar()
+    })
+</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script async src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script async src="https://unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<script>
+    window.addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: '',
+            appKey: '',
+            placeholder: 'Just go go',
+            pageSize: 10,
+            avatar: 'mm',
+            visitor: true,
+        })
+    });
+</script>
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function(){
+        searchFunc("/")
+    });
+</script>
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>

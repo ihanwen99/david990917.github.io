@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<style type="text/css">	
+	p.me{font-size: 60%}
+	div.me{
+		line-height: 60%;
+		font-size: 60%;
+		border-style: solid;
+		border-color: #ff0000 #00ff00 #0000ff rgb(250,0,255);
+		padding: 3px 2px;
+		background-color: lightyellow }
+	</style>
+	
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//pic.zhih.me">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+	<link rel="preload" href="https://pic.zhih.me/blog/header.jpg" as="image">
+
+	<title>5段流水线CPU设计 | David Stark</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="David Stark">
+	<meta name="description" content="2019年春季学期必修课-计算机组成">
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	<link rel="apple-touch-icon" href="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="David Stark">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="5段流水线CPU设计 | David Stark">
+	<meta property="og:description" content="2019年春季学期必修课-计算机组成">
+	<meta property="og:url" content="https://starky99.com/cpu-pipeline/">
+
+	
+	<meta property="article:published_time" content="2019-09-08T20:09:00+08:00"> 
+	<meta property="article:author" content="David Stark">
+	<meta property="article:published_first" content="David Stark, /cpu-pipeline/">
+	
+
+	
+	
+	
+<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-144747730-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-144747730-1');
+	</script>
+	
+	
+	
+<link rel="canonical" href="https://starky99.com/cpu-pipeline/">
+
+
+
+
+
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">🏠</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/me" title="我🌞">我🌞</a>
+            </li>
+            
+            <li>
+                <a href="/tags/love" title="Love💕">Love💕</a>
+            </li>
+            
+            <li>
+                <a href="https://github.com/david990917/My-LeetCode-Solutions" target="_blank" rel="noopener" title="我的LeetCode题解✅">我的LeetCode题解✅</a>
+            </li>
+            
+            <li>
+                <a href="https://starky99.com/myBlog/" title="我的博客特性😃">我的博客特性😃</a>
+            </li>
+            
+            <li>
+                <a href="/storage" title="Storage💎">Storage💎</a>
+            </li>
+            
+            <li>
+                <a href="https://s3.console.aws.amazon.com/s3/buckets/starky99/?region=ap-south-1&tab=overview" target="_blank" rel="noopener" title="AWS S3 ☁">AWS S3 ☁</a>
+            </li>
+            
+            <li>
+                <a href="/my20" title="MY20👦">MY20👦</a>
+            </li>
+            
+            <li>
+                <a href="/my2019" title="MY2019💪">MY2019💪</a>
+            </li>
+            
+			
+            
+			
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+	
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/david990917" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    <a class="social-link" title="bilibili" href="https://space.bilibili.com/49026226" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M360.896 183.968l-90.912-88.096s-14.208-17.472 9.824-37.248c24.16-19.648 25.376-10.912 33.504-5.472s135.2 130.816 135.2 130.816zm301.952 3.264l90.912-88.096s14.208-17.472-9.824-37.248c-24.032-19.648-25.376-10.912-33.504-5.472s-135.2 130.816-135.2 130.816zM1004 350.336c-3.264-137.984-123.168-164.192-123.168-164.192s-614.336-4.96-742.496 0C10.176 222.304 20 350.336 20 350.336s1.696 274.272-.128 413.12c13.824 138.848 120.864 160.928 120.864 160.928s42.72.864 73.92.864c3.264 8.992 5.696 52.544 54.24 52.544 48.416 0 54.24-52.544 54.24-52.544s354.88-1.696 384.352-1.696c1.696 14.816 8.992 54.976 57.536 54.24 48.416-.864 51.712-57.536 51.712-57.536s16.384-1.696 65.664 0C997.344 898.88 1004 764.192 1004 764.192s-1.568-275.872 0-413.856zm-98.912 439.232c0 21.728-17.248 39.456-38.464 39.456H167.2c-21.248 0-38.464-17.6-38.464-39.456V326.336c0-21.728 17.248-39.456 38.464-39.456h699.424c21.248 0 38.464 17.6 38.464 39.456zM202.4 457.152l205.344-39.456 15.52 77.184-203.648 39.456zm638.976 0l-205.344-39.456-15.648 77.184 203.776 39.456zm-418.08 191.392s45.152 81.312 95.264-26.336c48.416 105.088 101.824 27.904 101.824 27.904l30.336 19.776s-56.672 91.136-131.424 22.208c-63.232 68.928-129.728-21.952-129.728-21.952z"/></svg>
+    </a>
+	
+    
+    <a class="social-link" title="zhihu" href="https://www.zhihu.com/people/david990917" target="_blank" rel="noopener">
+        <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="32px" height="32px" viewbox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">  <image id="image0" width="32" height="32" x="0" y="0" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAAAAABWESUoAAAABGdBTUEAALGPC/xhBQAAACBjSFJN
+AAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAJcEhZ
+cwAACxMAAAsTAQCanBgAAAAHdElNRQfjBhYSDxAju0XaAAABIklEQVQ4y2NgGF5A3wurMBOMYXWa
+F6sCFhgj+982CIONG0L//cTAwMDAwAiV53rBdp2BgYHhf6TZIojIFV0UEwJ4D7124NrGwCDAwLDi
+NgMDQyaaVQc+8jIce8LAwMAQ+9+HgYGB4dplFEcaqUV8ZmD5g9uRt2T/MjCw/cSt4AsDAwMD2zc8
+3gwVZWAQ/ZjFwHAaezBa/IeBTWiOhJpwQ5OBQeD4ygYGhm/2WK348IGBwZLhzA08ccHA4MBgUIxX
+QeR78e4oPAq8dTeE3Z5nw8DAIMzMICbDgq6S+9Z/Uwb194cZYv//D5vz7///y6jyjEv/r2ZgYHA9
+zaBddvPft56ysiRUm6b+vyfKwMDAoMPAwFC/SwXDKZ5LygThHB6GYQcAq/1Vz+pfeiUAAAAldEVY
+dGRhdGU6Y3JlYXRlADIwMTktMDYtMjNUMDE6MTU6MTYtMDc6MDCq/xEoAAAAJXRFWHRkYXRlOm1v
+ZGlmeQAyMDE5LTA2LTIzVDAxOjE1OjE2LTA3OjAw26KplAAAAABJRU5ErkJggg==">
+</image></svg>
+
+    </a>
+    
+    
+</div>
+    </div>
+</nav>
+    
+	</div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2019-09-08T12:23:34.000Z">
+                    2019-09-8
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/tech/">技术</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">5段流水线CPU设计</h1>
+        </header>
+        <div class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567957178619&di=e74bcd60d41359047f07ad4d54ae3e3d&imgtype=0&src=http%3A%2F%2Fupload.semidata.info%2Fnew.eefocus.com%2Farticle%2Fimage%2F2018%2F01%2F05%2F5a4f1a4830512-thumb.png)">
+            </figure>
+            
+            <div class="post-full-content">
+                <article id="lightgallery" class="markdown-body">
+                    <h2 id="实验目的"><a href="#实验目的" class="headerlink" title="实验目的"></a>实验目的</h2><ol>
+<li>理解计算机指令流水线的协调工作原理，初步掌握流水线的设计和实现原理。</li>
+<li>深刻理解流水线寄存器在流水线实现中所起的重要作用。</li>
+<li>理解和掌握流水段的划分、设计原理及其实现方法原理。</li>
+<li>掌握运算器、寄存器堆、存储器、控制器在流水工作方式下，有别于实验一的设计和实现方法。</li>
+<li>掌握流水方式下，通过I/O端口与外部设备进行信息交互的方法。</li>
+</ol>
+<h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a>实验内容</h2><ol>
+<li>采用Verilog HDL在quartusⅡ中实现基本的具有20条MIPS指令的单周期CPU设计。</li>
+<li>利用实验提供的标准测试程序代码，完成仿真测试。</li>
+<li>采用I/O统一编址方式，即将输入输出的I/O地址空间，作为数据存取空间的一部分，实现CPU与外部设备的输入输出端口设计。实验中可采用高端地址。</li>
+<li>利用设计的I/O端口，通过lw指令，输入DE2实验板上的按键等输入设备信息。即将外部设备状态，读到CPU内部寄存器。</li>
+<li>利用设计的I/O端口，通过sw指令，输出对DE2实验板上的LED灯等输出设备的控制信号（或数据信息）。即将对外部设备的控制数据，从CPU内部的寄存器，写入到外部设备的相应控制寄存器（或可直接连接至外部设备的控制输入信号）。</li>
+<li>利用自己编写的程序代码，在自己设计的CPU上，实现对板载输入开关或按键的状态输入，并将判别或处理结果，利用板载LED灯或7段LED数码管显示出来。</li>
+<li>例如，将一路4bit二进制输入与另一路4bit二进制输入相加，利用两组分别2个LED数码管以10进制形式显示“被加数”和“加数”，另外一组LED数码管以10进制形式显示“和”等。（具体任务形式不做严格规定，同学可自由创意）。</li>
+<li>在实验报告中，汇报自己的设计思想和方法；并以汇编语言的形式，提供采用以上自行设计的指令集的作品应用功能的程序设计代码，并提供程序主要流程图。</li>
+</ol>
+<h2 id="实验器材"><a href="#实验器材" class="headerlink" title="实验器材"></a>实验器材</h2><p>DE1-SOC实验板套件1套<br>万用表 1台<br>示波器 1台</p>
+<h2 id="顶层设计"><a href="#顶层设计" class="headerlink" title="顶层设计"></a>顶层设计</h2><p>实验设计采用了如下图所示的结构</p>
+<p><img alt="流水线cpu" class="post-img b-lazy" href="/cpu-pipeline/%E6%B5%81%E6%B0%B4%E7%BA%BFcpu.PNG" data-src="/cpu-pipeline/%E6%B5%81%E6%B0%B4%E7%BA%BFcpu.PNG"></p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> pipelined_computer(resetn,clock,mem_clock,in_port0,in_port1,pc,inst,ealu,malu,walu,hex0,hex1,hex2,hex3,hex4,hex5);</span><br><span class="line">    <span class="keyword">input</span> resetn,clock,mem_clock;</span><br><span class="line">    <span class="keyword">output</span> [<span class="number">31</span>:<span class="number">0</span>] pc,inst,ealu,malu,walu;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">input</span> [<span class="number">3</span>:<span class="number">0</span>] in_port0, in_port1;</span><br><span class="line">    <span class="keyword">output</span>[<span class="number">6</span>:<span class="number">0</span>] hex0,hex1,hex2,hex3,hex4,hex5;</span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">31</span>:<span class="number">0</span>] out_port0, out_port1, out_port2;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//IF</span></span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">31</span>:<span class="number">0</span>] bpc,jpc,npc,pc4,ins,inst;</span><br><span class="line">    <span class="comment">//ID</span></span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">31</span>:<span class="number">0</span>] dpc4,da,db,dimm;</span><br><span class="line">    <span class="comment">//EX</span></span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">31</span>:<span class="number">0</span>] epc4,ea,eb,eimm;</span><br><span class="line">    <span class="comment">//MEM</span></span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">31</span>:<span class="number">0</span>] mb,mmo;</span><br><span class="line">    <span class="comment">//WB</span></span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">31</span>:<span class="number">0</span>] wmo,wdi;</span><br><span class="line">    <span class="comment">//register number</span></span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">4</span>:<span class="number">0</span>] drn,ern0,ern,mrn,wrn;</span><br><span class="line">    <span class="comment">//ALUC</span></span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">3</span>:<span class="number">0</span>] daluc,ealuc;</span><br><span class="line">    <span class="comment">//PCsource</span></span><br><span class="line">    <span class="keyword">wire</span> [<span class="number">1</span>:<span class="number">0</span>] pcsource;</span><br><span class="line">    <span class="comment">//freeze PC and IF/ID</span></span><br><span class="line">    <span class="keyword">wire</span> wpcir;</span><br><span class="line">    <span class="comment">//IF/ID</span></span><br><span class="line">    <span class="keyword">wire</span> dwreg,dm2reg,dwmem,daluimm,dshift,djal;</span><br><span class="line">    <span class="comment">//ID/EX</span></span><br><span class="line">    <span class="keyword">wire</span> ewreg,em2reg,ewmem,ealuimm,eshift,ejal;</span><br><span class="line">    <span class="comment">//EX/MEM</span></span><br><span class="line">    <span class="keyword">wire</span> mwreg,mm2reg,mwmem;</span><br><span class="line">    <span class="comment">//MEM/WB</span></span><br><span class="line">    <span class="keyword">wire</span> wwreg,wm2reg;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//IF/ID/MEM read at negedge of clock.</span></span><br><span class="line">    pipepc prog_cnt(npc,wpcir,clock,resetn,pc);</span><br><span class="line">    pipeif if_stage(pcsource,pc,bpc,da,jpc,npc,pc4,ins,mem_clock);</span><br><span class="line">    pipeir inst_reg(pc4,ins,wpcir,clock,resetn,dpc4,inst);</span><br><span class="line">    pipeid id_stage(mwreg,mrn,ern,ewreg,em2reg,mm2reg,dpc4,inst,</span><br><span class="line">        wrn,wdi,ealu,malu,mmo,wwreg,clock,resetn,bpc,</span><br><span class="line">        jpc,pcsource,wpcir,dwreg,dm2reg,dwmem,daluc,daluimm,</span><br><span class="line">        da,db,dimm,drn,dshift,djal);</span><br><span class="line">    pipedereg de_reg(dwreg,dm2reg,dwmem,daluc,daluimm,da,db,dimm,</span><br><span class="line">        drn,dshift,djal,dpc4,clock,resetn,ewreg,em2reg,ewmem,ealuc,ealuimm,</span><br><span class="line">        ea,eb,eimm,ern0,eshift,ejal,epc4);</span><br><span class="line">    pipeexe exe_stage(ealuc,ealuimm,ea,eb,eimm,eshift,ern0,epc4,ejal,ern,ealu);</span><br><span class="line">    pipeemreg em_reg(ewreg,em2reg,ewmem,ealu,eb,ern,clock,resetn,mwreg,</span><br><span class="line">        mm2reg,mwmem,malu,mb,mrn);</span><br><span class="line">    pipemem mem_stage(mwmem,malu,mb,wmo,wm2reg,in_port0,in_port1,</span><br><span class="line">        clock,mem_clock,resetn,mmo,out_port0,out_port1,out_port2);</span><br><span class="line">    pipemwreg mw_reg(mwreg,mm2reg,mmo,malu,mrn,clock,resetn,wwreg,</span><br><span class="line">        wm2reg,wmo,walu,wrn);</span><br><span class="line">    mux2x32 wb_stage(walu,wmo,wm2reg,wdi);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//I/0:</span></span><br><span class="line">    sevenseg trans0(out_port0[<span class="number">3</span>:<span class="number">0</span>],hex4);</span><br><span class="line">    sevenseg trans1(out_port0[<span class="number">7</span>:<span class="number">4</span>],hex5);</span><br><span class="line">    sevenseg trans2(out_port1[<span class="number">3</span>:<span class="number">0</span>],hex2);</span><br><span class="line">    sevenseg trans3(out_port1[<span class="number">7</span>:<span class="number">4</span>],hex3);</span><br><span class="line">    sevenseg trans4(out_port2[<span class="number">3</span>:<span class="number">0</span>],hex0);</span><br><span class="line">    sevenseg trans5(out_port2[<span class="number">7</span>:<span class="number">4</span>],hex1);</span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p>从顶层文件开始每个模块中变量的意义</p>
+<h3 id="pipepc"><a href="#pipepc" class="headerlink" title="pipepc"></a>pipepc</h3><p>npc是当前应该赋给pc的值，这是一个D锁存器，当wpcir=1且resetn!=0的时候才赋值</p>
+<h3 id="pipeif"><a href="#pipeif" class="headerlink" title="pipeif"></a>pipeif</h3><p>IF，包含一个多选器和一个指令rom。多选器通过输入的pcsource判定输出的是pc4、bpc、da、jpc中的一种，irom通过输入的pc获取输出的ins</p>
+<h3 id="pipeir"><a href="#pipeir" class="headerlink" title="pipeir"></a>pipeir</h3><p>IF/ID 流水线寄存器模块，当wpcir=1且resetn!=0的时候，D锁存器将pc4赋值给dpc4，将ins赋值给inst</p>
+<h3 id="pipeid"><a href="#pipeid" class="headerlink" title="pipeid"></a>pipeid</h3><p>ID，在这里获得了jpc、bpc，WB写入的寄存器编号rn，alu输入端的a&amp;b，立即数的符号拓展、控制信号，regfile和单周期的一致，cu中除去解决数据冒险和控制冒险的forwardA&amp;B，以及控制停顿的wpcir，其余均与单周期流水线一致</p>
+<h3 id="pipedereg"><a href="#pipedereg" class="headerlink" title="pipedereg"></a>pipedereg</h3><p>ID/EXE 流水线寄存器，当resetn!=0时，将ID段的输出赋给EXE段的输入，否则输入变成0。</p>
+<h3 id="pipeexe"><a href="#pipeexe" class="headerlink" title="pipeexe"></a>pipeexe</h3><p>EXE，ALU与单周期的一致，增加一个多选器用于jal指令</p>
+<h3 id="pipeemreg"><a href="#pipeemreg" class="headerlink" title="pipeemreg"></a>pipeemreg</h3><p>EXE/MEM流水线寄存器，当resetn!=0时，将EXE段的输出赋给MEM段的输入，否则输入变成0。</p>
+<h3 id="pipemem"><a href="#pipemem" class="headerlink" title="pipemem"></a>pipemem</h3><p>MEM，dmem和单周期一致，使用控制信号wmem</p>
+<h3 id="pipemwreg"><a href="#pipemwreg" class="headerlink" title="pipemwreg"></a>pipemwreg</h3><p>MEM/WB 流水线寄存器，当resetn!=0时，将MEM段的输出赋给WB段的输入，否则输入变成0。</p>
+<h3 id="cu"><a href="#cu" class="headerlink" title="cu"></a>cu</h3><p>控制单元，同时在这里解决流水线冒险，代码如下</p>
+<figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> pipecu (op, func, z, wmem, wreg, regrt, m2reg, aluc, shift,</span><br><span class="line">              aluimm, pcsource, jal, sext);</span><br><span class="line">   <span class="keyword">input</span>  [<span class="number">5</span>:<span class="number">0</span>] op,func;</span><br><span class="line">   <span class="keyword">input</span>        z;</span><br><span class="line">   <span class="keyword">output</span>       wreg,regrt,jal,m2reg,shift,aluimm,sext,wmem;</span><br><span class="line">   <span class="keyword">output</span> [<span class="number">3</span>:<span class="number">0</span>] aluc;</span><br><span class="line">   <span class="keyword">output</span> [<span class="number">1</span>:<span class="number">0</span>] pcsource;</span><br><span class="line">   <span class="keyword">wire</span> r_type = ~|op;</span><br><span class="line">   <span class="keyword">wire</span> i_add = r_type &amp; func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp;</span><br><span class="line">                ~func[<span class="number">2</span>] &amp; ~func[<span class="number">1</span>] &amp; ~func[<span class="number">0</span>];          <span class="comment">//100000</span></span><br><span class="line">   <span class="keyword">wire</span> i_sub = r_type &amp; func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp;</span><br><span class="line">                ~func[<span class="number">2</span>] &amp;  func[<span class="number">1</span>] &amp; ~func[<span class="number">0</span>];          <span class="comment">//100010</span></span><br><span class="line">      </span><br><span class="line">   </span><br><span class="line">   <span class="keyword">wire</span> i_and =  r_type &amp; func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp; func[<span class="number">2</span>] &amp; </span><br><span class="line">                ~func[<span class="number">1</span>] &amp; ~func[<span class="number">0</span>]; <span class="comment">//100100</span></span><br><span class="line">   <span class="keyword">wire</span> i_or  =  r_type &amp; func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp; func[<span class="number">2</span>] &amp; </span><br><span class="line">                ~func[<span class="number">1</span>] &amp; func[<span class="number">0</span>]; <span class="comment">//100101</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">wire</span> i_xor =  r_type &amp; func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp; func[<span class="number">2</span>] &amp; </span><br><span class="line">                func[<span class="number">1</span>] &amp; ~func[<span class="number">0</span>]; <span class="comment">//100110</span></span><br><span class="line">   <span class="keyword">wire</span> i_sll =  r_type &amp; ~func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp; ~func[<span class="number">2</span>] &amp;</span><br><span class="line">                ~func[<span class="number">1</span>] &amp; ~func[<span class="number">0</span>]; <span class="comment">//000000</span></span><br><span class="line">   <span class="keyword">wire</span> i_srl = r_type &amp; ~func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp; ~func[<span class="number">2</span>] &amp;</span><br><span class="line">                func[<span class="number">1</span>] &amp; ~func[<span class="number">0</span>]; <span class="comment">//000010</span></span><br><span class="line">   <span class="keyword">wire</span> i_sra = r_type &amp; ~func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp; ~func[<span class="number">2</span>] &amp;</span><br><span class="line">                func[<span class="number">1</span>] &amp; func[<span class="number">0</span>]; <span class="comment">//000011</span></span><br><span class="line">   <span class="keyword">wire</span> i_jr  = r_type &amp; ~func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; func[<span class="number">3</span>] &amp; ~func[<span class="number">2</span>] &amp;</span><br><span class="line">                ~func[<span class="number">1</span>] &amp; ~func[<span class="number">0</span>]; <span class="comment">//001000</span></span><br><span class="line">   <span class="keyword">wire</span> i_sllv = r_type &amp; ~func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp; func[<span class="number">2</span>] &amp;</span><br><span class="line">                ~func[<span class="number">1</span>] &amp; ~func[<span class="number">0</span>];<span class="comment">//000100</span></span><br><span class="line">   <span class="keyword">wire</span> i_srlv = r_type &amp; ~func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp; func[<span class="number">2</span>] &amp;</span><br><span class="line">                func[<span class="number">1</span>] &amp; ~func[<span class="number">0</span>];<span class="comment">//000110</span></span><br><span class="line">   <span class="keyword">wire</span> i_srav = r_type &amp; ~func[<span class="number">5</span>] &amp; ~func[<span class="number">4</span>] &amp; ~func[<span class="number">3</span>] &amp; func[<span class="number">2</span>] &amp;</span><br><span class="line">                func[<span class="number">1</span>] &amp; func[<span class="number">0</span>];<span class="comment">//000111</span></span><br><span class="line">  </span><br><span class="line">   <span class="comment">//Note: here, op[i] instead of func[i].</span></span><br><span class="line">   <span class="keyword">wire</span> i_addi = ~op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  op[<span class="number">3</span>] &amp; ~op[<span class="number">2</span>] &amp; ~op[<span class="number">1</span>] &amp; ~op[<span class="number">0</span>]; <span class="comment">//001000</span></span><br><span class="line">   <span class="keyword">wire</span> i_andi = ~op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  op[<span class="number">3</span>] &amp;  op[<span class="number">2</span>] &amp; ~op[<span class="number">1</span>] &amp; ~op[<span class="number">0</span>]; <span class="comment">//001100</span></span><br><span class="line">   </span><br><span class="line">   <span class="keyword">wire</span> i_ori  = ~op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  op[<span class="number">3</span>] &amp;  op[<span class="number">2</span>] &amp; ~op[<span class="number">1</span>] &amp; op[<span class="number">0</span>]; <span class="comment">//001101</span></span><br><span class="line">   <span class="keyword">wire</span> i_xori = ~op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  op[<span class="number">3</span>] &amp;  op[<span class="number">2</span>] &amp; op[<span class="number">1</span>] &amp; ~op[<span class="number">0</span>]; <span class="comment">//001110</span></span><br><span class="line">   <span class="keyword">wire</span> i_lw   = op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  ~op[<span class="number">3</span>] &amp;  ~op[<span class="number">2</span>] &amp; op[<span class="number">1</span>] &amp; op[<span class="number">0</span>]; <span class="comment">//100011</span></span><br><span class="line">   <span class="keyword">wire</span> i_sw   = op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  op[<span class="number">3</span>] &amp;  ~op[<span class="number">2</span>] &amp; op[<span class="number">1</span>] &amp; op[<span class="number">0</span>]; <span class="comment">//101011</span></span><br><span class="line">   <span class="keyword">wire</span> i_beq  = ~op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  ~op[<span class="number">3</span>] &amp; op[<span class="number">2</span>] &amp; ~op[<span class="number">1</span>] &amp; ~op[<span class="number">0</span>]; <span class="comment">//000100</span></span><br><span class="line">   <span class="keyword">wire</span> i_bne  = ~op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  ~op[<span class="number">3</span>] &amp; op[<span class="number">2</span>] &amp; ~op[<span class="number">1</span>] &amp; op[<span class="number">0</span>]; <span class="comment">//000101</span></span><br><span class="line">   <span class="keyword">wire</span> i_lui  = ~op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  op[<span class="number">3</span>] &amp; op[<span class="number">2</span>] &amp; op[<span class="number">1</span>] &amp; op[<span class="number">0</span>]; <span class="comment">//001111</span></span><br><span class="line">   <span class="keyword">wire</span> i_j    = ~op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  ~op[<span class="number">3</span>] &amp; ~op[<span class="number">2</span>] &amp; op[<span class="number">1</span>] &amp; ~op[<span class="number">0</span>]; <span class="comment">//000010</span></span><br><span class="line">   <span class="keyword">wire</span> i_jal  = ~op[<span class="number">5</span>] &amp; ~op[<span class="number">4</span>] &amp;  ~op[<span class="number">3</span>] &amp; ~op[<span class="number">2</span>] &amp; op[<span class="number">1</span>] &amp; op[<span class="number">0</span>]; <span class="comment">//000011</span></span><br><span class="line">   </span><br><span class="line">  </span><br><span class="line">   <span class="keyword">assign</span> pcsource[<span class="number">1</span>] = i_jr | i_j | i_jal;</span><br><span class="line">   <span class="keyword">assign</span> pcsource[<span class="number">0</span>] = ( i_beq &amp; z ) | (i_bne &amp; ~z) | i_j | i_jal ;</span><br><span class="line">   </span><br><span class="line">   <span class="keyword">assign</span> wreg = i_add | i_sub | i_and | i_or   | i_xor  |</span><br><span class="line">                 i_sll | i_srl | i_sra | i_addi | i_andi |</span><br><span class="line">                 i_ori | i_xori | i_lw | i_lui  | i_jal;</span><br><span class="line">   </span><br><span class="line">   <span class="comment">//aluc +:0000, -:x100 and:x001 or:x101 xor:x010 lui: x110 sll:0011 srl:0111 sra:1111</span></span><br><span class="line">   <span class="comment">//Note: bne, beq == xor, sllv=sll, srlv=srl, srav=sra;</span></span><br><span class="line">   <span class="keyword">assign</span> aluc[<span class="number">3</span>] = i_sra | i_srav;</span><br><span class="line">   <span class="keyword">assign</span> aluc[<span class="number">2</span>] = i_or | i_ori | i_lui | i_srl | i_sra | i_srlv | i_srav | i_sub;</span><br><span class="line">   <span class="keyword">assign</span> aluc[<span class="number">1</span>] = i_beq | i_bne | i_xor | i_xori | i_lui | i_sll | i_srl | i_sra | i_sllv | i_srlv | i_srav;</span><br><span class="line">   <span class="keyword">assign</span> aluc[<span class="number">0</span>] = i_and | i_andi | i_or | i_ori | i_sll | i_srl | i_sra | i_sllv | i_srlv | i_srav;</span><br><span class="line">   <span class="keyword">assign</span> shift   = i_sll | i_srl | i_sra | i_sllv | i_srlv | i_srav ;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">assign</span> aluimm  = i_addi | i_andi | i_ori | i_xori | i_lw | i_sw; <span class="comment">// All I-type(except LUI?). J-type is processed individually.</span></span><br><span class="line">   <span class="keyword">assign</span> sext    = i_addi | i_lw | i_sw | i_beq | i_bne;<span class="comment">//arithmetic I-type(NOTE logical unnecessary)</span></span><br><span class="line">   <span class="keyword">assign</span> wmem    = i_sw;</span><br><span class="line">   <span class="keyword">assign</span> m2reg   = i_lw;</span><br><span class="line">   <span class="comment">//rd = rt</span></span><br><span class="line">   <span class="keyword">assign</span> regrt   = i_addi | i_andi | i_ori | i_xori | i_lw | i_lui;</span><br><span class="line">   <span class="keyword">assign</span> jal     = i_jal;</span><br><span class="line"></span><br><span class="line"><span class="keyword">endmodule</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="I-O"><a href="#I-O" class="headerlink" title="I/O"></a>I/O</h3><p>I/O部分采用了实验四的方法，将I/O地址和内存地址统一编址的方法，对于课程实验中RISC风格的类MIPS指令系统，对I/O端口的访问（读：输入来自于外部信号；写：输出到外部的信号），采用同访问MEM一样的lw指令和sw指令，由硬件通过对地址的识别区分，实现对MEM访问和I/O访问的区分。</p>
+<p><img alt="IO" class="post-img b-lazy" href="/cpu-pipeline/IO.png" data-src="/cpu-pipeline/IO.png"></p>
+<h2 id="流水线冒险"><a href="#流水线冒险" class="headerlink" title="流水线冒险"></a>流水线冒险</h2><p>流水线cpu可能会有结构冒险，数据冒险和控制冒险。本实验中可能会发生数据冒险和控制冒险。</p>
+<ol>
+<li>数据冒险及解决办法。<br>数据冒险是指令之间会有数据相关的问题，一条指令没有执行完，下一条指令就需要它的结果。老师课件上讲了两种方法应对，一是加入气泡停顿，二是使用内部前推的方法。由于停顿会大大降低流水线cpu的效率，所以本实验采用了内部前推的方法应对数据冒险。<br>内部前推有三种情况，alu的计算结果从EXE段推到ID段，alu的计算结果从MEM段推到ID段，lw指令从数据存储器读出的数据从MEM段前推到ID段。根据优先检查相邻指令的条件，要先判断EXE段的alu结果，在判断MEM段的alu结果，最后判断从数据存储器读出的数据。若是lw指令，且其后续指令与lw数据有关，需要将流水线暂停一个周期。暂停流水线的做法就是保持pc值不变。所以这里需要添加一个控制信号wpcir。但是pc值不变时，某条指令可能会被执行两次，所以我们需要舍弃其中一条。即将原始的寄存器堆写信号和存储器的写信号与wpcir做与运算。这些在ID段control unit完成。</li>
+<li>控制冒险及解决办法。<br>Mips指令集中有jr，beq，bne，j，jal会引起pc的转移或跳转，但是跳转过程，可能已经将后续指令取进流水线中了。解决此问题的方法就是加入一个周期的延迟。这在ID段即可确定，不过需要对beq和bne指令检验rs和rt寄存器中的数据是否相等。、</li>
+</ol>
+<h2 id="我的代码"><a href="#我的代码" class="headerlink" title="我的代码"></a>我的代码</h2><h4 id="sc-datamen"><a href="#sc-datamen" class="headerlink" title="sc_datamen"></a>sc_datamen</h4><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DEPTH = <span class="number">32</span>;            % Memory depth <span class="keyword">and</span> width are required %</span><br><span class="line">WIDTH = <span class="number">32</span>;            % Enter a decimal number %</span><br><span class="line">ADDRESS_RADIX = HEX;   % Address <span class="keyword">and</span> value radixes are optional %</span><br><span class="line">DATA_RADIX = HEX;      % Enter BIN, DEC, HEX, <span class="keyword">or</span> OCT; unless %</span><br><span class="line">CONTENT                % otherwise specified, radixes = HEX %</span><br><span class="line">BEGIN</span><br><span class="line"><span class="number">14</span> : <span class="number">000000</span>A3;         % (<span class="number">50</span>) data[<span class="number">0</span>] %</span><br><span class="line"><span class="number">15</span> : <span class="number">00000027</span>;         % (<span class="number">54</span>) data[<span class="number">1</span>] %</span><br><span class="line"><span class="number">16</span> : <span class="number">00000079</span>;         % (<span class="number">58</span>) data[<span class="number">2</span>] %</span><br><span class="line"><span class="number">17</span> : <span class="number">00000115</span>;         % (<span class="number">5</span>C) data[<span class="number">3</span>] %</span><br><span class="line">END ;</span><br></pre></td></tr></table></figure>
+
+<h4 id="sc-instmem"><a href="#sc-instmem" class="headerlink" title="sc_instmem"></a>sc_instmem</h4><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DEPTH = <span class="number">32</span>;            % Memory depth <span class="keyword">and</span> width are required %</span><br><span class="line">WIDTH = <span class="number">32</span>;            % Enter a decimal number %</span><br><span class="line">ADDRESS_RADIX = HEX;   % Address <span class="keyword">and</span> value radixes are optional %</span><br><span class="line">DATA_RADIX = HEX;      % Enter BIN, DEC, HEX, <span class="keyword">or</span> OCT; unless %</span><br><span class="line">CONTENT                % otherwise specified, radixes = HEX %</span><br><span class="line">BEGIN</span><br><span class="line"><span class="number">14</span> : <span class="number">000000</span>A3;         % (<span class="number">50</span>) data[<span class="number">0</span>] %</span><br><span class="line"><span class="number">15</span> : <span class="number">00000027</span>;         % (<span class="number">54</span>) data[<span class="number">1</span>] %</span><br><span class="line"><span class="number">16</span> : <span class="number">00000079</span>;         % (<span class="number">58</span>) data[<span class="number">2</span>] %</span><br><span class="line"><span class="number">17</span> : <span class="number">00000115</span>;         % (<span class="number">5</span>C) data[<span class="number">3</span>] %</span><br><span class="line">END ;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="实验总结"><a href="#实验总结" class="headerlink" title="实验总结"></a>实验总结</h2><p>通过本次实验，我对流水线CPU有了更深层次的认识。尤其让我更加清楚流水线内部的信息，同时也提高了自己Debug的能力。中间有一个小细节卡了我好几天的时间，最后解决了超级开心。</p>
+<p>本次实验的顶层结构老师也已经给出，从顶层模块入手，对流水线cpu的各个模块逐一击破，这样的学习过程很有收获。</p>
+
+                </article>
+				
+				
+					<div class="me">
+						<my_post_copyright>
+						  <p><span>本文标题: </span><a href="/cpu-pipeline/">5段流水线CPU设计</a></p>
+						  <p><span>文章作者: </span><a href="/" title="访问 David Stark 的个人博客">David Stark</a></p>
+						  <p><span>发布时间: </span>2019年09月08日 - 20:09</p>
+						  <p><span>最后更新: </span>2019年09月18日 - 20:09</p>
+						  <p><span id="busuanzi_container_page_pv">本文累计阅读：<span id="busuanzi_value_page_pv"></span></span></p>					  
+						  <p><span>原始链接: </span><a href="/cpu-pipeline/" title="5段流水线CPU设计">https://starky99.com/cpu-pipeline/</a></p></my_post_copyright></div>
+				
+				
+				<div>
+					
+						<div style="text-align:center;color:#787878;font-size:14px;">---本文结束✔感谢阅读---</div>
+					
+				</div>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/%E8%AF%BE%E7%A8%8B/" rel="tag"># 课程</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="清洁能源技术-原理与应用" href="/2019fall-po903/">
+            ← 清洁能源技术-原理与应用
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="基本单周期CPU设计" href="/single-cpu/">
+            基本单周期CPU设计 →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实验目的"><span class="toc-text">实验目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验内容"><span class="toc-text">实验内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实验器材"><span class="toc-text">实验器材</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#顶层设计"><span class="toc-text">顶层设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体实现"><span class="toc-text">具体实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#pipepc"><span class="toc-text">pipepc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeif"><span class="toc-text">pipeif</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeir"><span class="toc-text">pipeir</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeid"><span class="toc-text">pipeid</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipedereg"><span class="toc-text">pipedereg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeexe"><span class="toc-text">pipeexe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipeemreg"><span class="toc-text">pipeemreg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipemem"><span class="toc-text">pipemem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pipemwreg"><span class="toc-text">pipemwreg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cu"><span class="toc-text">cu</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O"><span class="toc-text">I&#x2F;O</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流水线冒险"><span class="toc-text">流水线冒险</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#我的代码"><span class="toc-text">我的代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#sc-datamen"><span class="toc-text">sc_datamen</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sc-instmem"><span class="toc-text">sc_instmem</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#实验总结"><span class="toc-text">实验总结</span></a></li>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; David Stark &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/leetcode-python-auto-show/">LeetCode自动展示</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/windows-subsystem-ubuntu/">Windows子系统Ubuntu</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/when-to-buy-iPhone11Pro/">iPhone 11 Pro 冲冲冲</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/tech/">技术</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/words/">文字</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/algorithm/">算法</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://images.pexels.com/photos/2418996/pexels-photo-2418996.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/C/" style="font-size: 14px;">C++</a> <a href="/tags/Django/" style="font-size: 15.43px;">Django</a> <a href="/tags/Dlib/" style="font-size: 14px;">Dlib</a> <a href="/tags/LeetCode/" style="font-size: 14px;">LeetCode</a> <a href="/tags/ubuntu/" style="font-size: 15.43px;">Ubuntu</a> <a href="/tags/blog/" style="font-size: 18.29px;">blog</a> <a href="/tags/docker/" style="font-size: 16.86px;">docker</a> <a href="/tags/1point3acra/" style="font-size: 16.86px;">一亩三分地</a> <a href="/tags/history/" style="font-size: 14px;">历史</a> <a href="/tags/love/" style="font-size: 18.29px;">恋爱</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 19.71px;">数据结构</a> <a href="/tags/travel/" style="font-size: 18.29px;">旅行</a> <a href="/tags/summerApply/" style="font-size: 14px;">暑研</a> <a href="/tags/%E6%9D%82/" style="font-size: 14px;">杂</a> <a href="/tags/others/" style="font-size: 14px;">杂记</a> <a href="/tags/%E6%AF%8F%E5%A4%A9%E9%83%BD%E5%9C%A8%E8%BF%9B%E6%AD%A5/" style="font-size: 14px;">每天都在进步</a> <a href="/tags/environment/" style="font-size: 16.86px;">环境</a> <a href="/tags/masterApply/" style="font-size: 14px;">研究生申请</a> <a href="/tags/programmer/" style="font-size: 21.14px;">程序员</a> <a href="/tags/america/" style="font-size: 16.86px;">美国</a> <a href="/tags/work/" style="font-size: 16.86px;">职场</a> <a href="/tags/english/" style="font-size: 14px;">英文</a> <a href="/tags/plan/" style="font-size: 14px;">规划</a> <a href="/tags/book/" style="font-size: 22.57px;">读书笔记</a> <a href="/tags/%E8%AF%BE%E7%A8%8B/" style="font-size: 24px;">课程</a> <a href="/tags/%E9%A2%98/" style="font-size: 14px;">题</a> <a href="/tags/soup/" style="font-size: 14px;">鸡汤</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="David Stark">David Stark</a>
+			&copy; 2020
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://www.zhihu.com/lives/users/5a60f1248f4a9d4c5994ceb0ad681ca1" title="欢迎支持我的知乎Live💗" target="_blank" rel="noopener">欢迎支持我的知乎Live💗</a>
+			
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>if(window.navigator && navigator.serviceWorker) {navigator.serviceWorker.getRegistrations().then(function(registrations) {for(let registration of registrations) {registration.unregister()}})}</script>
+
+
+<script async src="/js/allinone.min.js" id="scriptLoad"></script>
+
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        var bLazy = new Blazy()
+    })
+</script>
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="David Stark">
+			
+                <img src="https://github.com/david990917/Ubuntu/blob/master/assets/img/hanwen.PNG?raw=true" alt="David Stark icon">
+			
+            <span>David Stark</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">5段流水线CPU设计</div>
+    <progress class="progress" value="0">
+        <span class="progress-container">
+            <span class="progress-bar"></span>
+        </span>
+    </progress>
+</div>
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        postProgressBar()
+    })
+</script>
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+
+
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script async src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script async src="https://unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<script>
+    window.addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: false,
+            appId: '',
+            appKey: '',
+            placeholder: 'Just go go',
+            pageSize: 10,
+            avatar: 'mm',
+            visitor: true,
+        })
+    });
+</script>
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function(){
+        searchFunc("/")
+    });
+</script>
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded',function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    });
+</script>
+
+
+</body>
+</html>
